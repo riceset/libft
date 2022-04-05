@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/05 04:21:45 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/05 05:36:32 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/04/05 05:29:11 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/04/05 05:35:59 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	main(void)
+void	ft_bzero(void *s, size_t n)
 {
-	/* memset */
-	/* char	str[] = "Hello World!"; */
+	size_t	i;
 
-	/* ft_memset(str, '0', ft_strlen(str)); */
-
-	/* printf("%s\n", str); */
-
-	/* bzero */
-	char	str[] = "Hi";
-
-	printf("%s\n", str);
-
-	ft_bzero(str, 2);
-
-	printf("%d\n", str[0]);
+	i = 0;
+	while (i < n)
+	{
+		((char *)s)[i] = 0;
+		i++;
+	}
 }
