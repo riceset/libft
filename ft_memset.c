@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/05 04:21:45 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/05 05:27:05 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/04/05 04:43:14 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/04/05 05:26:47 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	main(void)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	char	str[] = "Hello World!";
+	size_t i;
 
-	ft_memset(str, '0', ft_strlen(str));
-
-	printf("%s\n", str);
+	i = 0;
+	while (i < len)
+	{
+		((unsigned char *) b)[i] = c;
+		i++;
+	}
+	return (b);
 }

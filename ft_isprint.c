@@ -1,23 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/05 04:21:45 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/05 05:27:05 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/04/05 04:39:46 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/04/05 04:42:02 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
-
-int	main(void)
+int	ft_isprint(int c)
 {
-	char	str[] = "Hello World!";
-
-	ft_memset(str, '0', ft_strlen(str));
-
-	printf("%s\n", str);
+	return ((c <= '~') && (c >= ' '));
 }

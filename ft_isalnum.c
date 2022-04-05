@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/05 04:21:45 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/05 05:27:05 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/04/05 04:34:45 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/04/05 05:26:36 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	main(void)
+int	ft_isalnum(int c)
 {
-	char	str[] = "Hello World!";
-
-	ft_memset(str, '0', ft_strlen(str));
-
-	printf("%s\n", str);
+	return (ft_isnum(c) || ft_isalpha(c));
 }
