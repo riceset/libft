@@ -6,28 +6,31 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 04:21:45 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/05 05:36:32 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/06 13:05:58 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int	main(void)
 {
-	/* memset */
-	/* char	str[] = "Hello World!"; */
+	/* issmth_test(ft_isdigit, 'A'); */
+	/* strlen_test("Hello World!"); */
+	/* memset_test(); */
+	/* bzero_test(); */
+	memcpy_test("Hello");
+	/* memmove_test(); */
+	/* strlcpy_test(); */
+	/* strlcat_test(); */
+	/* toupper_test(); */
+	/* tolower_test(); */
+	/* strchr_test(); */
+	/* strrchr_test(); */
+	/* strncmp_test(); */
+	/* memchr_test(); */
+	/* memcmp_test(); */
+	/* strnstr_test(); */
+	/* atoi_test(); */
 
-	/* ft_memset(str, '0', ft_strlen(str)); */
-
-	/* printf("%s\n", str); */
-
-	/* bzero */
-	char	str[] = "Hi";
-
-	printf("%s\n", str);
-
-	ft_bzero(str, 2);
-
-	printf("%d\n", str[0]);
+	return (0);
 }
