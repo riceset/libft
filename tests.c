@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:44:21 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/08 01:30:38 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/09 17:56:04 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,12 @@ void	memmove_test(void)
 	char	aaa[] = STR;
 
 	//dst < src
-	printf("%s\n", str);
-	memmove(str, str + 5, 10);
-	printf("%s\n\n", str);
-	printf("%s\n", aaa);
-	ft_memmove(aaa, aaa + 5, 10);
-	printf("%s\n", aaa);
+	/* printf("%s\n", str); */
+	/* memmove(str, str + 5, 10); */
+	/* printf("%s\n\n", str); */
+	/* printf("%s\n", aaa); */
+	/* ft_memmove(aaa, aaa + 5, 10); */
+	/* printf("%s\n", aaa); */
 
 	//dst > src
 	/* printf("%s\n", str); */
