@@ -6,15 +6,15 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 04:09:51 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/05 22:57:13 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/07 07:46:57 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_size	ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	t_size	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i] != '\0')

@@ -6,15 +6,15 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 05:43:01 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/06 13:08:49 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/07 07:41:47 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, t_size n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	t_size	i;
+	size_t	i;
 	
 	if (dst == NULL && src == NULL)
 		return NULL;

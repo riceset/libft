@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memmove.c                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 12:26:24 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/06 12:54:17 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/08 00:51:48 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*memmove(void *dest, const void *src, t_size n)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	t_size			i;
-	unsigned char	*buf;
-
+	size_t	i;
+	
 	i = 0;
-	buf = malloc(n);
-	while (i < n)
+	if (dst < src)
 	{
-		buf[i] = ((unsigned char *) src)[i];
-		i++;
+		while (i < n)
+		{
+			((unsigned char *) dst)[i] = ((unsigned char *) src)[i];
+			i++;
+		}
+		return (dst);
 	}
-	return (buf);
+	if (dst > src)
+		while (n > 0)
+		{
+			((unsigned char *) dst)[n - 1] = ((unsigned char *) src)[n - 1];
+			n--;
+		}
+	return (dst);
 }

@@ -6,15 +6,15 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 04:43:14 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/05 22:57:47 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/07 07:41:23 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, t_size len)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	t_size	i;
+	size_t	i;
 
 	i = 0;
 	while (i < len)
