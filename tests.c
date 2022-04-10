@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:44:21 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/09 17:56:04 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/10 15:44:09 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,19 @@
 #include <stdio.h>
 #include <string.h>
 
-//isalpha, isdigit, isalnum, isascii, isprint
-void	issmth_test(int (*smth)(int), int c)
+//isalpha, isdigit, isalnum, isascii, isprint, toupper, tolower
+void	chr_test(int (*smth)(int), int c)
 {
-	printf("'%c' %s\n", c, smth(c) ? "Y" : "N");
+	if (smth == ft_toupper || smth == ft_tolower)
+		printf("input:\t%c\noutput:\t%c\n", c, smth(c));
+	else
+		printf("input:\t%c\noutput:\t%s\n", c, smth(c) ? "TRUE" : "FALSE");
+	return ;
 }
 
 void	strlen_test(const char *s)
 {
-	printf("size: %lu\n", ft_strlen(s));
+	printf("size: %zu\n", ft_strlen(s));
 	return ;
 }
 
@@ -39,14 +43,6 @@ void	bzero_test(char *s, size_t n)
 	printf("%s\n", s);
 	return ;
 }
-
-struct	s_person
-{
-	char	*name;
-	int		age;
-};
-
-typedef struct s_person	t_person;
 
 void	memcpy_test(const char *src)
 {
@@ -69,15 +65,6 @@ void	memcpy_test(const char *src)
 
 	for (int i = 0; i < 5; i++)
 		printf("%d: %.1f\n", i, destd[i]);
-
-	t_person	j;
-	t_person	k;
-
-	strcpy(j.name, "aaa");
-	j.age = 42;
-
-	ft_memcpy(&k, &j, sizeof(t_person));
-	printf("\n%s is %d years old.", k.name, k.age);
 	return ;
 }
 

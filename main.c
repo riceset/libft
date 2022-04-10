@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 04:21:45 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/06 13:05:58 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/10 15:41:51 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,14 @@
 
 int	main(void)
 {
-	/* issmth_test(ft_isdigit, 'A'); */
+	issmth_test(ft_isalpha, '3');
 	/* strlen_test("Hello World!"); */
 	/* memset_test(); */
 	/* bzero_test(); */
-	memcpy_test("Hello");
+	/* memcpy_test("Hello"); */
 	/* memmove_test(); */
 	/* strlcpy_test(); */
 	/* strlcat_test(); */
-	/* toupper_test(); */
-	/* tolower_test(); */
 	/* strchr_test(); */
 	/* strrchr_test(); */
 	/* strncmp_test(); */
