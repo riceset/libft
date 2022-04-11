@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 04:21:45 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/11 01:06:32 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/11 04:00:18 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(void)
 	/* strlen_test(str); */
 	/* memset_test(str, 'A', ft_strlen(str)); */
 	/* bzero_test(str, ft_strlen(str)); */
-	memcpy_test(str);
+	/* memcpy_test(str); */
 	/* memmove_test(str); */
 	/* strlcpy_test(str, "AAAAA", 6); */
 	/* strlcat_test(str, "AAAAA", 7); */

@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:44:21 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/11 02:42:07 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/11 03:03:46 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,29 +60,6 @@ void	bzero_test(char *b, size_t len)
 	free(b2);
 	return ;
 }
-
-/* void	memcpy_test(const char *src) */
-/* { */
-/* 	char	dst[ft_strlen(src) + 1]; */
-/* 	char	dst2[ft_strlen(src) + 1]; */
-
-/* 	//NULLの場合 */
-/* 	ft_memcpy(NULL, NULL, sizeof(char) * (ft_strlen(src) + 1)); */
-/* 	memcpy(NULL, NULL, sizeof(char) * (ft_strlen(src) + 1)); */
-
-/* 	/1* ft_memcpy(dst, src, sizeof(char) * (ft_strlen(src) + 1)); *1/ */
-/* 	/1* memcpy(dst2, src, sizeof(char) * (ft_strlen(src) + 1)); *1/ */
-/* 	printf("FT_MEMCPY:\noriginal:\t%s\ndstlicated:\t%s\n", src, dst); */
-/* 	printf("MEMCPY:\noriginal:\t%s\ndstlicated:\t%s\n", src, dst2); */
-
-/* 	//Doubleの場合 */
-/* 	/1* double	srcd[5] = {1.1, 2.2, 3.3, 4.4, 5.5}; *1/ */
-/* 	/1* double	destd[5]; *1/ */
-/* 	/1* ft_memcpy(destd, srcd, sizeof(srcd)); *1/ */
-/* 	/1* for (int i = 0; i < 5; i++) *1/ */
-/* 	/1* 	printf("%d: %.1f\n", i, destd[i]); *1/ */
-/* 	return ; */
-/* } */
 
 void	memcpy_test(const char *src)
 {
