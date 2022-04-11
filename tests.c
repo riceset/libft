@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:44:21 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/11 00:08:48 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/11 02:42:07 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,50 @@ void	bzero_test(char *b, size_t len)
 	return ;
 }
 
+/* void	memcpy_test(const char *src) */
+/* { */
+/* 	char	dst[ft_strlen(src) + 1]; */
+/* 	char	dst2[ft_strlen(src) + 1]; */
+
+/* 	//NULLの場合 */
+/* 	ft_memcpy(NULL, NULL, sizeof(char) * (ft_strlen(src) + 1)); */
+/* 	memcpy(NULL, NULL, sizeof(char) * (ft_strlen(src) + 1)); */
+
+/* 	/1* ft_memcpy(dst, src, sizeof(char) * (ft_strlen(src) + 1)); *1/ */
+/* 	/1* memcpy(dst2, src, sizeof(char) * (ft_strlen(src) + 1)); *1/ */
+/* 	printf("FT_MEMCPY:\noriginal:\t%s\ndstlicated:\t%s\n", src, dst); */
+/* 	printf("MEMCPY:\noriginal:\t%s\ndstlicated:\t%s\n", src, dst2); */
+
+/* 	//Doubleの場合 */
+/* 	/1* double	srcd[5] = {1.1, 2.2, 3.3, 4.4, 5.5}; *1/ */
+/* 	/1* double	destd[5]; *1/ */
+/* 	/1* ft_memcpy(destd, srcd, sizeof(srcd)); *1/ */
+/* 	/1* for (int i = 0; i < 5; i++) *1/ */
+/* 	/1* 	printf("%d: %.1f\n", i, destd[i]); *1/ */
+/* 	return ; */
+/* } */
+
 void	memcpy_test(const char *src)
 {
-	char	dup[ft_strlen(src) + 1];
-	char	dup2[ft_strlen(src) + 1];
+	char	*dst;
+	char	*dst2;
+
+	dst = malloc(ft_strlen(src) + 1);
+	dst2 = malloc(ft_strlen(src) + 1);
+
+	printf("SRC:\t%s\n", src);
 
 	//NULLの場合
-	/* ft_memcpy(NULL, NULL, sizeof(char) * (ft_strlen(src) + 1)); */
-	/* memcpy(NULL, NULL, sizeof(char) * (ft_strlen(src) + 1)); */
+	/* ft_memcpy(NULL, "42", sizeof(char) * (ft_strlen(src) + 1)); */
+	memcpy(NULL, "42", sizeof(char) * (ft_strlen(src) + 1));
 
-	ft_memcpy(dup, src, sizeof(char) * (ft_strlen(src) + 1));
-	memcpy(dup2, src, sizeof(char) * (ft_strlen(src) + 1));
-	printf("FT_MEMCPY:\noriginal:\t%s\nduplicated:\t%s\n", src, dup);
-	printf("MEMCPY:\noriginal:\t%s\nduplicated:\t%s\n", src, dup);
+	/* ft_memcpy(dst, src, sizeof(char) * (ft_strlen(src) + 1)); */
+	/* memcpy(dst2, src, sizeof(char) * (ft_strlen(src) + 1)); */
+
+	printf("ORG:\t%s\nFT_:\t%s\nRES:\t%s\n", dst, dst2, (strcmp(dst, dst2) == 0) ? "(✅)" : "(❌)");
+
+
+	/* その他 */
 
 	//Doubleの場合
 	/* double	srcd[5] = {1.1, 2.2, 3.3, 4.4, 5.5}; */
@@ -81,38 +112,37 @@ void	memcpy_test(const char *src)
 	/* ft_memcpy(destd, srcd, sizeof(srcd)); */
 	/* for (int i = 0; i < 5; i++) */
 	/* 	printf("%d: %.1f\n", i, destd[i]); */
+
 	return ;
 }
 
-void	memmove_test(void)
+void	memmove_test(const char *src)
 {
-#define STR "WATERMELONJUICE"
-	char	str[] = STR;
-	char	aaa[] = STR;
+	char	*dst;
+	char	*dst2;
+
+	dst = malloc(ft_strlen(src) + 1);
+	dst2 = malloc(ft_strlen(src) + 1);
+
+	strcpy(dst, src);
+	strcpy(dst2, src);
+
+	printf("SRC:\t%s\n", src);
 
 	//dst < src
-	printf("%s\n", str);
-	memmove(str, str + 5, 10);
-	printf("%s\n\n", str);
-	printf("%s\n", aaa);
-	ft_memmove(aaa, aaa + 5, 10);
-	printf("%s\n", aaa);
+	memmove(dst, dst + 5, 10);
+	ft_memmove(dst2, dst2 + 5, 10);
 
 	//dst > src
-	/* printf("%s\n", str); */
-	/* memmove(str + 10, str, 5); */
-	/* printf("%s\n\n", str); */
-	/* printf("%s\n", aaa); */
-	/* ft_memmove(aaa + 10, aaa, 5); */
-	/* printf("%s\n", aaa); */
+	/* memmove(dst + 10, dst, 5); */
+	/* ft_memmove(dst2 + 10, dst2, 5); */
 
 	//src == dst
-	/* printf("%s\n", str); */
-	/* memmove(str, str, 5); */
-	/* printf("%s\n\n", str); */
-	/* printf("%s\n", aaa); */
-	/* ft_memmove(aaa, aaa, 5); */
-	/* printf("%s\n", aaa); */
+	/* memmove(dst, dst, 5); */
+	/* ft_memmove(dst2, dst2, 5); */
+
+	printf("ORG:\t%s\nFT_:\t%s\nRES:\t%s\n", dst, dst2, (strcmp(dst, dst2) == 0) ? "(✅)" : "(❌)");
+
 	return ;
 }
 
@@ -131,18 +161,19 @@ void	strlcpy_test(char *dst, const char *src, size_t cpysize)
 	return ;
 }
 
-void	strlcat_test(void)
+void	strlcat_test(char *dst, const char *src, size_t f_dst_s)
 {
-	return ;
-}
+	char	*dst2;
+	size_t	out;
+	size_t	out2;
 
-void	toupper_test(void)
-{
-	return ;
-}
+	dst2 = malloc(ft_strlen(dst) + 1);
+	strcpy(dst2, dst);
 
-void	tolower_test(void)
-{
+	out = strlcat(dst, src, f_dst_s);
+	out2 = ft_strlcat(dst2, src, f_dst_s);
+
+	printf("or:\t%s\no1:\t%zu\nft:\t%s\no2\t%zu\n", dst, out, dst2, out2);
 	return ;
 }
 

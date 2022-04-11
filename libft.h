@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 04:20:12 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/10 23:48:05 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/11 00:53:11 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	memcpy_test(const char *src);
 
 void	*ft_memmove(void *dest, const void *src, size_t n);
-void	memmove_test(void);
+void	memmove_test(const char *src);
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t cpysize);
 void	strlcpy_test(char *dst, const char *src, size_t cpysize);
 
 size_t	ft_strlcat(char *dst, const char *src, size_t f_dst_s);
-void	strlcat_test(void);
+void	strlcat_test(char *dst, const char *src, size_t f_dst_s);
 
 /* char	*ft_strchr(const char *s, int c); */
 /* char	*ft_strrchr(const char *s, int c); */
