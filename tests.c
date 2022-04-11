@@ -6,32 +6,46 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:44:21 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/11 16:26:55 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/11 17:36:51 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 #include <string.h>
+#include <limits.h>
 
 void	all_tests(char *str)
 {
 	/* chr_test(ft_isalpha, str[0]); */
 	/* strlen_test(str); */
-	/* memset_test(str, 'A', ft_strlen(str)); */
-	/* bzero_test(str, ft_strlen(str)); */
-	/* memcpy_test(str); */
-	/* memmove_test(str); */
-	/* strlcpy_test(str, "AAAAA", 6); */
-	/* strlcat_test(str, "AAAAA", 7); */
-	/* strchr_test(strrchr, str, '5'); */
-	/* strncmp_test(str, "hi4", 3); */
-	memchr_test(str, '\0', strlen(str));
+	{
+		/* memset_test(str, 'A', ft_strlen(str)); */
+		/* bzero_test(str, ft_strlen(str)); */
+	}
+	{
+		/* memcpy_test(str); */
+		/* memmove_test(str); */
+
+		/* strlcpy_test(str, "AAAAA", 6); */
+		/* strlcat_test(str, "AAAAA", 7); */
+	}
+	{
+		/* strchr_test(strrchr, str, '5'); */
+		/* memchr_test(str, '\0', strlen(str)); */
+	}
+	{
+		/* strncmp_test("hi\0a", "hi\0b", 4); */
+		/* memcmp_test("hi\0a", "hi\0b", 4); */
+	}
+
+	calloc_test(3, 3);
 }
 
 void	chr_test(int (*smth)(int), int c)
 {
 	printf("⚡️ chr:\n");
+
 	if (smth == ft_toupper || smth == ft_tolower)
 		printf("input:\t%c\noutput:\t%c\n", c, smth(c));
 	else
@@ -42,6 +56,7 @@ void	chr_test(int (*smth)(int), int c)
 void	strlen_test(const char *s)
 {
 	printf("⚡️ strlen:\n");
+
 	printf("or:\t%zu\nft:\t%zu\n", strlen(s), ft_strlen(s));
 	return ;
 }
@@ -66,6 +81,7 @@ void	memset_test(char *b, int c, size_t len)
 void	bzero_test(char *b, size_t len)
 {
 	printf("⚡️ bzero:\n");
+
 	char	*b2;
 
 	b2 = malloc(ft_strlen(b) + 1);
@@ -83,6 +99,7 @@ void	bzero_test(char *b, size_t len)
 void	memcpy_test(const char *src)
 {
 	printf("⚡️ memcpy:\n");
+
 	char	*dst;
 	char	*dst2;
 
@@ -116,6 +133,7 @@ void	memcpy_test(const char *src)
 void	memmove_test(const char *src)
 {
 	printf("⚡️ memmove:\n");
+
 	char	*dst;
 	char	*dst2;
 
@@ -147,6 +165,7 @@ void	memmove_test(const char *src)
 void	strlcpy_test(char *dst, const char *src, size_t cpysize)
 {
 	printf("⚡️ strlcpy:\n");
+
 	char	*dst2;
 
 	dst2 = malloc(ft_strlen(dst) + 1);
@@ -163,6 +182,7 @@ void	strlcpy_test(char *dst, const char *src, size_t cpysize)
 void	strlcat_test(char *dst, const char *src, size_t f_dst_s)
 {
 	printf("⚡️ strlcat:\n");
+
 	char	*dst2;
 	size_t	out;
 	size_t	out2;
@@ -180,6 +200,7 @@ void	strlcat_test(char *dst, const char *src, size_t f_dst_s)
 void	strchr_test(char *(*f)(const char *s, int c), const char *s, int c)
 {
 	printf("⚡️ strchr:\n");
+
 	char	*rt1;
 	char	*rt2;
 
@@ -223,9 +244,13 @@ void	memchr_test(const void *s, int c, size_t n)
 	return ;
 }
 
-void	memcmp_test(void)
+void	memcmp_test(const void *v1, const void *v2, size_t n)
 {
 	printf("⚡️ memcmp:\n");
+
+	int	o1 = memcmp(v1, v2, n);
+	int	o2 = ft_memcmp(v1, v2, n);
+	printf("or:\t%d\nft:\t%d\n", o1, o2);
 	return ;
 }
 
@@ -239,4 +264,19 @@ void	atoi_test(void)
 {
 	printf("⚡️ atoi:\n");
 	return ;
+}
+
+void	calloc_test(size_t count, size_t size)
+{
+	void	*p1;
+	void	*p2;
+
+	/* p1 = calloc(count, size); */
+	p2 = ft_calloc(count, size);
+
+	/* for (int i = 0; i < count * size; i++) */
+	/* 	printf("%d", ((char *)p1)[i]); */
+	/* puts(""); */
+	for (int i = 0; i < count * size; i++)
+		printf("%d", ((char *)p2)[i]);
 }
