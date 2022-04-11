@@ -6,29 +6,31 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 04:21:45 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/10 15:41:51 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/11 00:11:17 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
 int	main(void)
 {
-	issmth_test(ft_isalpha, '3');
-	/* strlen_test("Hello World!"); */
-	/* memset_test(); */
-	/* bzero_test(); */
+	char	*str;
+
+	str = malloc(6);
+	strcpy(str, "Hello");
+	
+	/* !!!!!!!!!TESTS!!!!!!!!! */
+
+	/* chr_test(ft_isalpha, 'a'); */
+	/* strlen_test(str); */
+	/* memset_test(str, 'A', ft_strlen(str)); */
+	/* bzero_test(str, ft_strlen(str)); */
 	/* memcpy_test("Hello"); */
 	/* memmove_test(); */
-	/* strlcpy_test(); */
-	/* strlcat_test(); */
-	/* strchr_test(); */
-	/* strrchr_test(); */
-	/* strncmp_test(); */
-	/* memchr_test(); */
-	/* memcmp_test(); */
-	/* strnstr_test(); */
-	/* atoi_test(); */
+	/* strlcpy_test(str, "AAAAA", 6); */
 
+	free(str);
 	return (0);
 }

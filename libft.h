@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 04:20:12 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/10 15:49:01 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/10 23:48:05 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	strlen_test(const char *s);
 void	*ft_memset(void *b, int c, size_t len);
 void	memset_test(char *b, int c, size_t len);
 
-void	ft_bzero(void *s, size_t n);
-void	bzero_test(char *s, size_t n);
+void	ft_bzero(void *b, size_t len);
+void	bzero_test(char *b, size_t len);
 
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	memcpy_test(const char *src);
@@ -39,8 +39,8 @@ void	memcpy_test(const char *src);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	memmove_test(void);
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-void	strlcpy_test(void);
+size_t	ft_strlcpy(char *dst, const char *src, size_t cpysize);
+void	strlcpy_test(char *dst, const char *src, size_t cpysize);
 
 size_t	ft_strlcat(char *dst, const char *src, size_t f_dst_s);
 void	strlcat_test(void);
