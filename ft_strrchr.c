@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 18:06:07 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/11 14:10:06 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/11 14:13:55 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ char	*ft_strrchr(const char *s, int c)
 	trav = head;
 	while (*trav)
 		trav++;
+	if (c == '\0')
+	{
+		while (*trav)
+			trav--;
+		return (trav);
+	}
 	while (trav >= head)
 	{
 		if (*trav == c2)

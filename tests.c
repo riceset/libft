@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:44:21 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/11 03:03:46 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/11 15:16:36 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,22 @@
 #include <stdio.h>
 #include <string.h>
 
+void	all_tests(char *str)
+{
+	/* chr_test(ft_isalpha, str[0]); */
+	/* strlen_test(str); */
+	/* memset_test(str, 'A', ft_strlen(str)); */
+	/* bzero_test(str, ft_strlen(str)); */
+	/* memcpy_test(str); */
+	/* memmove_test(str); */
+	/* strlcpy_test(str, "AAAAA", 6); */
+	/* strlcat_test(str, "AAAAA", 7); */
+	strchr_test(strrchr, str, '5');
+}
+
 void	chr_test(int (*smth)(int), int c)
 {
+	printf("⚡️ chr:\n");
 	if (smth == ft_toupper || smth == ft_tolower)
 		printf("input:\t%c\noutput:\t%c\n", c, smth(c));
 	else
@@ -25,12 +39,14 @@ void	chr_test(int (*smth)(int), int c)
 
 void	strlen_test(const char *s)
 {
+	printf("⚡️ strlen:\n");
 	printf("or:\t%zu\nft:\t%zu\n", strlen(s), ft_strlen(s));
 	return ;
 }
 
 void	memset_test(char *b, int c, size_t len)
 {
+	printf("⚡️ memset:\n");
 	char	*b2;
 
 	b2 = malloc(ft_strlen(b) + 1);
@@ -47,6 +63,7 @@ void	memset_test(char *b, int c, size_t len)
 
 void	bzero_test(char *b, size_t len)
 {
+	printf("⚡️ bzero:\n");
 	char	*b2;
 
 	b2 = malloc(ft_strlen(b) + 1);
@@ -63,6 +80,7 @@ void	bzero_test(char *b, size_t len)
 
 void	memcpy_test(const char *src)
 {
+	printf("⚡️ memcpy:\n");
 	char	*dst;
 	char	*dst2;
 
@@ -73,10 +91,10 @@ void	memcpy_test(const char *src)
 
 	//NULLの場合
 	/* ft_memcpy(NULL, "42", sizeof(char) * (ft_strlen(src) + 1)); */
-	memcpy(NULL, "42", sizeof(char) * (ft_strlen(src) + 1));
+	/* memcpy(NULL, "42", sizeof(char) * (ft_strlen(src) + 1)); */
 
-	/* ft_memcpy(dst, src, sizeof(char) * (ft_strlen(src) + 1)); */
-	/* memcpy(dst2, src, sizeof(char) * (ft_strlen(src) + 1)); */
+	ft_memcpy(dst, src, sizeof(char) * (ft_strlen(src) + 1));
+	memcpy(dst2, src, sizeof(char) * (ft_strlen(src) + 1));
 
 	printf("ORG:\t%s\nFT_:\t%s\nRES:\t%s\n", dst, dst2, (strcmp(dst, dst2) == 0) ? "(✅)" : "(❌)");
 
@@ -95,6 +113,7 @@ void	memcpy_test(const char *src)
 
 void	memmove_test(const char *src)
 {
+	printf("⚡️ memmove:\n");
 	char	*dst;
 	char	*dst2;
 
@@ -125,6 +144,7 @@ void	memmove_test(const char *src)
 
 void	strlcpy_test(char *dst, const char *src, size_t cpysize)
 {
+	printf("⚡️ strlcpy:\n");
 	char	*dst2;
 
 	dst2 = malloc(ft_strlen(dst) + 1);
@@ -140,6 +160,7 @@ void	strlcpy_test(char *dst, const char *src, size_t cpysize)
 
 void	strlcat_test(char *dst, const char *src, size_t f_dst_s)
 {
+	printf("⚡️ strlcat:\n");
 	char	*dst2;
 	size_t	out;
 	size_t	out2;
@@ -154,37 +175,54 @@ void	strlcat_test(char *dst, const char *src, size_t f_dst_s)
 	return ;
 }
 
-void	strchr_test(void)
+void	strchr_test(char *(*f)(const char *s, int c), const char *s, int c)
 {
-	return ;
-}
+	printf("⚡️ strchr:\n");
+	char	*rt1;
+	char	*rt2;
 
-void	strrchr_test(void)
-{
+	if (f == strchr)
+	{
+		rt1 = strchr(s, c);
+		rt2 = ft_strchr(s, c);
+	}
+	else if (f == strrchr)
+	{
+		rt1 = strrchr(s, c);
+		rt2 = ft_strrchr(s, c);
+	}
+	else
+		return ;
+	printf("RT1:\t\"%p\" | \"%s\"\nRT2:\t\"%p\" | \"%s\"\nRES:\t%s\n", rt1, rt1, rt2, rt2, rt1 == rt2 ? "アドレスが一致します (✅)" : "アドレスが一致しません (❌)");
 	return ;
 }
 
 void	strncmp_test(void)
 {
+	printf("⚡️ strncmp:\n");
 	return ;
 }
 
 void	memchr_test(void)
 {
+	printf("⚡️ memchr:\n");
 	return ;
 }
 
 void	memcmp_test(void)
 {
+	printf("⚡️ memcmp:\n");
 	return ;
 }
 
 void	strnstr_test(void)
 {
+	printf("⚡️ strnstr:\n");
 	return ;
 }
 
 void	atoi_test(void)
 {
+	printf("⚡️ atoi:\n");
 	return ;
 }
