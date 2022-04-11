@@ -1,6 +1,6 @@
 a.out
 libft.a
 libftTester
-run-test.sh
+t.sh
 a.out.dSYM
 *.o

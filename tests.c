@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:44:21 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/11 15:56:43 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/11 16:26:55 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	all_tests(char *str)
 	/* strlcat_test(str, "AAAAA", 7); */
 	/* strchr_test(strrchr, str, '5'); */
 	/* strncmp_test(str, "hi4", 3); */
+	memchr_test(str, '\0', strlen(str));
 }
 
 void	chr_test(int (*smth)(int), int c)
@@ -208,9 +209,17 @@ void	strncmp_test(const char *s1, const char *s2, size_t n)
 	return ;
 }
 
-void	memchr_test(void)
+void	memchr_test(const void *s, int c, size_t n)
 {
 	printf("⚡️ memchr:\n");
+
+	void	*rt1;
+	void	*rt2;
+
+	rt1 = memchr(s, c, n);
+	rt2 = ft_memchr(s, c, n);
+
+	printf("RT1:\t\"%p\"\nRT2:\t\"%p\"\nRES:\t%s\n", rt1, rt2, rt1 == rt2 ? "アドレスが一致します (✅)" : "アドレスが一致しません (❌)");
 	return ;
 }
 
