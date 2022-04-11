@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:44:21 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/11 15:16:36 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/11 15:56:43 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	all_tests(char *str)
 	/* memmove_test(str); */
 	/* strlcpy_test(str, "AAAAA", 6); */
 	/* strlcat_test(str, "AAAAA", 7); */
-	strchr_test(strrchr, str, '5');
+	/* strchr_test(strrchr, str, '5'); */
+	/* strncmp_test(str, "hi4", 3); */
 }
 
 void	chr_test(int (*smth)(int), int c)
@@ -197,9 +198,13 @@ void	strchr_test(char *(*f)(const char *s, int c), const char *s, int c)
 	return ;
 }
 
-void	strncmp_test(void)
+void	strncmp_test(const char *s1, const char *s2, size_t n)
 {
 	printf("⚡️ strncmp:\n");
+	
+	int	o1 = strncmp(s1, s2, n);
+	int	o2 = ft_strncmp(s1, s2, n);
+	printf("or:\t%d\nft:\t%d\n", o1, o2);
 	return ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 04:20:12 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/11 15:04:13 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/11 15:46:24 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,13 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 void	strchr_test(char *(*f)(const char *s, int c), const char *s, int c);
 
-/* int		ft_strncmp(const char *s1, const char *s2, size_t n); */
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	strncmp_test(const char *s1, const char *s2, size_t n);
+
 /* void	*ft_memchr(const void *s, int c, size_t n); */
 /* int		ft_memcmp(const void *s1, const void *s2, size_t n); */
 /* char	*ft_strnstr(const char *haystack, const char *needle, size_t len); */
 /* void	*ft_calloc(size_t count, size_t size); */
 /* char	*ft_strdup(const char *s1); */
-/* void	strchr_test(void); */
-/* void	strrchr_test(void); */
-/* void	strncmp_test(void); */
-/* void	memchr_test(void); */
-/* void	memcmp_test(void); */
-/* void	strnstr_test(void); */
-/* void	atoi_test(void); */
 
 #endif
