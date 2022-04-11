@@ -1,3 +1,5 @@
 a.out
 libftTester
 *.o
+run-test.sh
+a.out.dSYM
