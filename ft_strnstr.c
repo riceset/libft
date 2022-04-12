@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/09 18:11:42 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/12 13:10:32 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/04/09 18:09:47 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/04/12 12:04:34 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
+#include <string.h>
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_strnstr(const char *str, const char *substr, size_t len)
 {
-	void	*b;
+	size_t	i;
+	size_t	j;
+	size_t	k;
 
-	if (size != 0 && count > SIZE_MAX / size)
-		return (NULL);
-	b = malloc(count * size);
-	if (b)
-		ft_bzero(b, count * size);
-	return (b);
+	i = 0;
+	if (substr[i] == '\0')
+		return ((char *)str);
+	while (str[i])
+	{
+		k = i;
+		j = 0;
+		if (str[i] == substr[0])
+			while (substr[j] && j < len)
+			{
+				if (j + 1 == ft_strlen(substr))
+					return ((char *)(str + i));
+				k++;
+				j++;
+			}
+		i++;
+	}
+	return (NULL);
 }

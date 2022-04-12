@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:44:21 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/11 23:18:30 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/12 12:15:38 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -256,30 +256,8 @@ void	memcmp_test(const void *v1, const void *v2, size_t n)
 	return ;
 }
 
-void	strnstr_test(void)
+void	strnstr_test(const char *str, const char *substr, size_t len)
 {
 	printf("⚡️ strnstr:\n");
 	return ;
 }
-
-/* void	atoi_test(char *str) */
-/* { */
-/* 	printf("⚡️ atoi:\n"); */
-/* 	printf("%s is %s\n", str, ft_atoi(str) ? "positive." : "negative."); */
-/* 	return ; */
-/* } */
-
-/* void	calloc_test(size_t count, size_t size) */
-/* { */
-/* 	void	*p1; */
-/* 	void	*p2; */
-
-/* 	/1* p1 = calloc(count, size); *1/ */
-/* 	p2 = ft_calloc(count, size); */
-
-/* 	/1* for (int i = 0; i < count * size; i++) *1/ */
-/* 	/1* 	printf("%d", ((char *)p1)[i]); *1/ */
-/* 	/1* puts(""); *1/ */
-/* 	for (int i = 0; i < count * size; i++) */
-/* 		printf("%d", ((char *)p2)[i]); */
-/* } */

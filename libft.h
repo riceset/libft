@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 04:20:12 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/11 18:49:30 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/12 12:15:48 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ void	memchr_test(const void *s, int c, size_t n);
 int		ft_memcmp(const void *v1, const void *v2, size_t n);
 void	memcmp_test(const void *v1, const void *v2, size_t n);
 
-/* char	*ft_strnstr(const char *haystack, const char *needle, size_t len); */
+char	*ft_strnstr(const char *str, const char *substr, size_t len);
+void	strnstr_test(const char *str, const char *substr, size_t len);
 
 void	*ft_calloc(size_t count, size_t size);
 void	calloc_test(size_t count, size_t size);
