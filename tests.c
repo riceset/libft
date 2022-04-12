@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:44:21 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/12 12:15:38 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/12 17:37:27 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	all_tests(char *str)
 		/* memcpy_test(str); */
 		/* memmove_test(str); */
 
-		strlcpy_test("a", "hello", -1);
+		/* strlcpy_test("a", "hello", -1); */
 		/* strlcat_test(str, "AAAAA", 7); */
 	}
 	{
@@ -40,6 +40,7 @@ void	all_tests(char *str)
 		/* memcmp_test("hi\0a", "hi\0b", 4); */
 	}
 
+	strnstr_test("aaabcabcd", "cd", 8);
 	/* atoi_test(str); */
 	/* calloc_test(3, 3); */
 }
@@ -66,10 +67,7 @@ void	strlen_test(const char *s)
 void	memset_test(char *b, int c, size_t len)
 {
 	printf("⚡️ memset:\n");
-	char	*b2;
-
-	b2 = malloc(ft_strlen(b) + 1);
-	strcpy(b2, b);
+	char	*b2 = ft_strdup(b);
 
 	memset(b, c, len);
 	ft_memset(b2, c, len);
@@ -84,10 +82,7 @@ void	bzero_test(char *b, size_t len)
 {
 	printf("⚡️ bzero:\n");
 
-	char	*b2;
-
-	b2 = malloc(ft_strlen(b) + 1);
-	strcpy(b2, b);
+	char	*b2 = ft_strdup(b);
 
 	bzero(b, len);
 	ft_bzero(b2, len);
@@ -102,11 +97,8 @@ void	memcpy_test(const char *src)
 {
 	printf("⚡️ memcpy:\n");
 
-	char	*dst;
-	char	*dst2;
-
-	dst = malloc(ft_strlen(src) + 1);
-	dst2 = malloc(ft_strlen(src) + 1);
+	char	*dst = ft_strdup(src);
+	char	*dst2 = ft_strdup(src);
 
 	printf("SRC:\t%s\n", src);
 
@@ -136,14 +128,8 @@ void	memmove_test(const char *src)
 {
 	printf("⚡️ memmove:\n");
 
-	char	*dst;
-	char	*dst2;
-
-	dst = malloc(ft_strlen(src) + 1);
-	dst2 = malloc(ft_strlen(src) + 1);
-
-	strcpy(dst, src);
-	strcpy(dst2, src);
+	char	*dst = ft_strdup(src);
+	char	*dst2 = ft_strdup(src);
 
 	printf("SRC:\t%s\n", src);
 
@@ -161,6 +147,8 @@ void	memmove_test(const char *src)
 
 	printf("ORG:\t%s\nFT_:\t%s\nRES:\t%s\n", dst, dst2, (strcmp(dst, dst2) == 0) ? "(✅)" : "(❌)");
 
+	free(dst);
+	free(dst2);
 	return ;
 }
 
@@ -168,16 +156,14 @@ void	strlcpy_test(char *dst, const char *src, size_t cpysize)
 {
 	printf("⚡️ strlcpy:\n");
 
-	char	*dst2;
-
-	dst2 = malloc(ft_strlen(dst) + 1);
-	strcpy(dst2, dst);
+	char	*dst2 = ft_strdup(dst);
 
 	strlcpy(dst, src, cpysize);
-	strlcpy(dst2, src, cpysize);
+	ft_strlcpy(dst2, src, cpysize);
 
 	printf("or:\t%s\nft:\t%s\n", dst, dst2);
 
+	free(dst2);
 	return ;
 }
 
@@ -185,17 +171,16 @@ void	strlcat_test(char *dst, const char *src, size_t f_dst_s)
 {
 	printf("⚡️ strlcat:\n");
 
-	char	*dst2;
+	char	*dst2 = ft_strdup(dst);
 	size_t	out;
 	size_t	out2;
-
-	dst2 = malloc(ft_strlen(dst) + 1);
-	strcpy(dst2, dst);
 
 	out = strlcat(dst, src, f_dst_s);
 	out2 = ft_strlcat(dst2, src, f_dst_s);
 
 	printf("or:\t%s\no1:\t%zu\nft:\t%s\no2\t%zu\n", dst, out, dst2, out2);
+	
+	free(dst2);
 	return ;
 }
 
@@ -259,5 +244,22 @@ void	memcmp_test(const void *v1, const void *v2, size_t n)
 void	strnstr_test(const char *str, const char *substr, size_t len)
 {
 	printf("⚡️ strnstr:\n");
+
+	char	*o1 = strnstr(str, substr, len);
+	char	*o2 = ft_strnstr(str, substr, len);
+
+	printf("or:\t%s\nft:\t%s\n", o1, o2);
+	return ;
+}
+
+void	atoi_test(const char *str)
+{
+	char	*str2 = ft_strdup(str);
+	int	o1 = atoi(str);
+	int	o2 = ft_atoi(str2);
+
+	printf("or:\t%d\nft:\t%d\n", o1, o2);
+
+	free(str2);
 	return ;
 }

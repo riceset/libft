@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 04:20:12 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/12 12:15:48 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/12 16:54:48 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,6 @@ void	calloc_test(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
 
 int		ft_atoi(const char *str);
-void	atoi_test(char *str);
+void	atoi_test(const char *str);
 
 #endif
