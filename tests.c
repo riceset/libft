@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:44:21 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/11 17:36:51 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/11 23:18:30 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 void	all_tests(char *str)
 {
+	(void) str;
 	/* chr_test(ft_isalpha, str[0]); */
 	/* strlen_test(str); */
 	{
@@ -27,7 +28,7 @@ void	all_tests(char *str)
 		/* memcpy_test(str); */
 		/* memmove_test(str); */
 
-		/* strlcpy_test(str, "AAAAA", 6); */
+		strlcpy_test("a", "hello", -1);
 		/* strlcat_test(str, "AAAAA", 7); */
 	}
 	{
@@ -39,7 +40,8 @@ void	all_tests(char *str)
 		/* memcmp_test("hi\0a", "hi\0b", 4); */
 	}
 
-	calloc_test(3, 3);
+	/* atoi_test(str); */
+	/* calloc_test(3, 3); */
 }
 
 void	chr_test(int (*smth)(int), int c)
@@ -172,7 +174,7 @@ void	strlcpy_test(char *dst, const char *src, size_t cpysize)
 	strcpy(dst2, dst);
 
 	strlcpy(dst, src, cpysize);
-	ft_strlcpy(dst2, src, cpysize);
+	strlcpy(dst2, src, cpysize);
 
 	printf("or:\t%s\nft:\t%s\n", dst, dst2);
 
@@ -260,23 +262,24 @@ void	strnstr_test(void)
 	return ;
 }
 
-void	atoi_test(void)
-{
-	printf("⚡️ atoi:\n");
-	return ;
-}
+/* void	atoi_test(char *str) */
+/* { */
+/* 	printf("⚡️ atoi:\n"); */
+/* 	printf("%s is %s\n", str, ft_atoi(str) ? "positive." : "negative."); */
+/* 	return ; */
+/* } */
 
-void	calloc_test(size_t count, size_t size)
-{
-	void	*p1;
-	void	*p2;
+/* void	calloc_test(size_t count, size_t size) */
+/* { */
+/* 	void	*p1; */
+/* 	void	*p2; */
 
-	/* p1 = calloc(count, size); */
-	p2 = ft_calloc(count, size);
+/* 	/1* p1 = calloc(count, size); *1/ */
+/* 	p2 = ft_calloc(count, size); */
 
-	/* for (int i = 0; i < count * size; i++) */
-	/* 	printf("%d", ((char *)p1)[i]); */
-	/* puts(""); */
-	for (int i = 0; i < count * size; i++)
-		printf("%d", ((char *)p2)[i]);
-}
+/* 	/1* for (int i = 0; i < count * size; i++) *1/ */
+/* 	/1* 	printf("%d", ((char *)p1)[i]); *1/ */
+/* 	/1* puts(""); *1/ */
+/* 	for (int i = 0; i < count * size; i++) */
+/* 		printf("%d", ((char *)p2)[i]); */
+/* } */

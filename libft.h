@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 04:20:12 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/11 17:40:11 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/11 18:49:30 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 # define TRUE 1
 # define FALSE 0
+
+typedef int	t_bool;
 
 void	all_tests(char *str);
 
@@ -69,5 +71,8 @@ void	*ft_calloc(size_t count, size_t size);
 void	calloc_test(size_t count, size_t size);
 
 char	*ft_strdup(const char *s1);
+
+int		ft_atoi(const char *str);
+void	atoi_test(char *str);
 
 #endif
