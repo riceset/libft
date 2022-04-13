@@ -1,6 +1,7 @@
 CC = gcc
 NAME = libft.a
-CFLAGS = -Wall -Wextra -Werror -I includes
+# CFLAGS = -Wall -Wextra -Werror -I includes
+CFLAGS = -I includes
 SRCS = $(wildcard ft_*.c)
 OBJS = $(SRCS:.c=.o)
 

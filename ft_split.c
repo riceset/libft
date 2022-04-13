@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:16:58 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/13 15:38:51 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/13 16:29:07 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,6 @@
  * The array must endwith a NULL pointer. */
 char	**ft_split(char const *s, char c)
 {
-	return ();
+	char	**a;
+	return (a);
 }
