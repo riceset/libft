@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/05 04:31:13 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/13 15:45:04 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/04/13 15:29:22 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/04/13 15:42:33 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* The isalpha() function tests for any character for which isupper(3) or
- * islower(3) is true.  The value of the argument must be representable as
- * an unsigned char or the value of EOF. */
-int	ft_isalpha(int c)
+#include "libft.h"
+
+/* Outputs the integer ’n’ to the given file descriptor. */
+void	ft_putnbr_fd(int n, int fd)
 {
-	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:44:21 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/13 15:11:16 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/13 15:30:17 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -261,4 +261,54 @@ void	substr_test(char const *s, unsigned int start, size_t len)
 {
 	printf("⚡️ substr:\n");
 	printf("%s\n", ft_substr(s, start, len));
+}
+
+void	strjoin_test(char const *s1, char const *s2)
+{
+	printf("⚡️ strjoin:\n");
+}
+
+void	strtrim_test(char const *s1, char const *set)
+{
+	printf("⚡️ strtrim:\n");
+}
+
+void	split_test(char const *s, char c)
+{
+	printf("⚡️ split:\n");
+}
+
+void	itoa_test(int n)
+{
+	printf("⚡️ itoa:\n");
+}
+
+void	strmapi_test(char const *s, char (*f)(unsigned int, char))
+{
+	printf("⚡️ strmapi:\n");
+}
+
+void	striteri_test(char *s, void (*f)(unsigned int, char*))
+{
+	printf("⚡️ striteri:\n");
+}
+
+void	putchar_fd_test(char c, int fd)
+{
+	printf("⚡️ putchar_fd:\n");
+}
+
+void	putstr_fd_test(char *s, int fd)
+{
+	printf("⚡️ putstr_fd:\n");
+}
+
+void	putendl_fd_test(char *s, int fd)
+{
+	printf("⚡️ putendl_fd:\n");
+}
+
+void	putnbr_fd_test(int n, int fd)
+{
+	printf("⚡️ putnbr_fd:\n");
 }

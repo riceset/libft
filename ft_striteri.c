@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/05 04:31:13 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/13 15:45:04 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/04/13 15:22:37 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/04/13 15:40:49 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* The isalpha() function tests for any character for which isupper(3) or
- * islower(3) is true.  The value of the argument must be representable as
- * an unsigned char or the value of EOF. */
-int	ft_isalpha(int c)
+#include "libft.h"
+
+/* Applies the function ’f’ on each character ofthe string passed as argument,
+ * passing its indexas first argument.
+ * Each character is passed byaddress to ’f’ to be modified if necessary. */
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
+	return ;
 }
