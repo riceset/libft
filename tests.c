@@ -6,44 +6,12 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:44:21 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/12 17:37:27 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/12 21:44:37 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
-#include <limits.h>
-
-void	all_tests(char *str)
-{
-	(void) str;
-	/* chr_test(ft_isalpha, str[0]); */
-	/* strlen_test(str); */
-	{
-		/* memset_test(str, 'A', ft_strlen(str)); */
-		/* bzero_test(str, ft_strlen(str)); */
-	}
-	{
-		/* memcpy_test(str); */
-		/* memmove_test(str); */
-
-		/* strlcpy_test("a", "hello", -1); */
-		/* strlcat_test(str, "AAAAA", 7); */
-	}
-	{
-		/* strchr_test(strrchr, str, '5'); */
-		/* memchr_test(str, '\0', strlen(str)); */
-	}
-	{
-		/* strncmp_test("hi\0a", "hi\0b", 4); */
-		/* memcmp_test("hi\0a", "hi\0b", 4); */
-	}
-
-	strnstr_test("aaabcabcd", "cd", 8);
-	/* atoi_test(str); */
-	/* calloc_test(3, 3); */
-}
+#include "tests.h"
 
 void	chr_test(int (*smth)(int), int c)
 {
