@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:44:21 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/13 15:30:17 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/13 16:39:26 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -266,6 +266,7 @@ void	substr_test(char const *s, unsigned int start, size_t len)
 void	strjoin_test(char const *s1, char const *s2)
 {
 	printf("⚡️ strjoin:\n");
+	printf("%s\n", ft_strjoin(s1, s2));
 }
 
 void	strtrim_test(char const *s1, char const *set)
