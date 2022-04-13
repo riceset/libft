@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/09 18:09:47 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/13 12:43:24 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/04/12 21:55:04 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/04/13 13:30:53 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *substr, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
-	size_t	j;
-	size_t	k;
+	unsigned int	i;
+	char			*sb;
 
 	i = 0;
-	if (substr[i] == '\0')
-		return ((char *)str);
-	while (str[i])
+	if (s)
 	{
-		k = i;
-		j = 0;
-		if (str[i] == substr[0])
+		if (ft_strlen(s) < len)
+			len = ft_strlen(s);
+		sb = malloc((len + 1) * sizeof(char));
+		if (sb)
 		{
-			while (substr[j] && str[k] == substr[j])
-			{
-				if (j + 1 == ft_strlen(substr) && k < len)
-					return ((char *)(str + i));
-				k++;
-				j++;
-			}
+			if (start <= ft_strlen(s))
+				while (s[start] && i < len)
+					sb[i++] = s[start++];
+			sb[i] = '\0';
+			return (sb);
 		}
-		i++;
 	}
 	return (NULL);
 }

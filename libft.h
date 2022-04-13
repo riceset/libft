@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 04:20:12 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/12 21:48:33 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/13 13:36:26 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ char	*ft_strnstr(const char *str, const char *substr, size_t len);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	**ft_split(const char *str, char *charset);
 
 #endif

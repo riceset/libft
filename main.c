@@ -6,10 +6,11 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 04:21:45 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/12 21:46:49 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/13 13:28:58 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "tests.h"
 
 int	main(int argc, char **argv)
@@ -22,7 +23,7 @@ int	main(int argc, char **argv)
 
 	/* PART 1 */
 	{
-		/* chr_test(ft_isalpha, str[0]); */
+		/* chr_test(ft_isalnum, str[0]); */
 		/* strlen_test(str); */
 		/* memset_test(str, 'A', ft_strlen(str)); */
 		/* bzero_test(str, ft_strlen(str)); */
@@ -36,12 +37,12 @@ int	main(int argc, char **argv)
 		/* memcmp_test("hi\0a", "hi\0b", 4); */
 		/* strnstr_test("aaabcabcd", "cd", 8); */
 		/* atoi_test(str); */
-		/* calloc_test(3, 3); */
+		/* calloc_test(SIZE_MAX / 2, 2); */
 	}
 
 	/* PART 2 */
 	{
-
+		substr_test("hello", 0, 999999999999999);
 	}
 
 	/* BONUS */

@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 21:39:32 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/12 21:47:57 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/12 22:48:42 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	strncmp_test(const char *s1, const char *s2, size_t n);
 void	memchr_test(const void *s, int c, size_t n);
 void	memcmp_test(const void *v1, const void *v2, size_t n);
 void	strnstr_test(const char *str, const char *substr, size_t len);
+void	calloc_test(size_t count, size_t size);
 void	atoi_test(const char *str);
+void	substr_test(char const *s, unsigned int start, size_t len);
 
 #endif

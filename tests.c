@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:44:21 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/12 21:44:37 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/13 15:11:16 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,6 +222,8 @@ void	strnstr_test(const char *str, const char *substr, size_t len)
 
 void	atoi_test(const char *str)
 {
+	printf("⚡️ atoi:\n");
+
 	char	*str2 = ft_strdup(str);
 	int	o1 = atoi(str);
 	int	o2 = ft_atoi(str2);
@@ -230,4 +232,33 @@ void	atoi_test(const char *str)
 
 	free(str2);
 	return ;
+}
+
+void	calloc_test(size_t count, size_t size)
+{
+	printf("⚡️ calloc:\n");
+
+	char	*b1 = calloc(count, size);
+	char	*b2 = ft_calloc(count, size);
+
+	printf("or:\t%s\nft:\t%s\n", b1, b2);
+
+	free(b1);
+	free(b2);
+}
+
+void	strdup_test(const char *s1)
+{
+	printf("⚡️ strdup:\n");
+
+	char	*o1 = strdup(s1);
+	char	*o2 = ft_strdup(s1);
+
+	printf("or:\t%s\nft:\t%s\n", o1, o2);
+}
+
+void	substr_test(char const *s, unsigned int start, size_t len)
+{
+	printf("⚡️ substr:\n");
+	printf("%s\n", ft_substr(s, start, len));
 }
