@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:28:22 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/13 19:19:54 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/13 19:30:31 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,10 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	int	i;
-
 	if (s)
 	{
-		i = 0;
-		while (s[i])
-			ft_putchar_fd(s[i++], fd);
+		while (*s)
+			ft_putchar_fd(*s++, fd);
 		ft_putchar_fd('\n', fd);
 	}
 	return ;
