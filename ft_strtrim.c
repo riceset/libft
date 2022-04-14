@@ -6,38 +6,37 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:15:35 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/14 09:24:14 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/14 09:32:44 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static char	*g_head;
 static char	*g_tail;
 
-int	ft_res_size(char *s1, char const *set, int len)
+int	ft_res_size(char *s1, char *set, int len)
 {
-	int		i;
+	char	*trav;
 
-	i = 0;
 	g_head = s1;
 	g_tail = s1 + (len - 1);
-	while (set[i])
+	trav = set;
+	while (*trav)
 	{
-		while (*g_head == set[i])
+		while (*g_head == *trav)
 		{
-			i = 0;
+			trav = set;
 			len--;
 			g_head++;
 		}
-		while (*g_tail == set[i])
+		while (*g_tail == *trav)
 		{
-			i = 0;
+			trav = set;
 			len--;
 			g_tail--;
 		}
-		i++;
+		trav++;
 	}
 	if (len < 0)
 		len = 0;
@@ -50,14 +49,17 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*trav;
 	int		res_size;
 
-	res_size = ft_res_size((char *) s1, set, ft_strlen(s1));
-	res = ft_calloc((res_size + 1), sizeof(char));
-	if (res)
+	if (s1 && set)
 	{
-		trav = res;
-		while (g_head <= g_tail)
-			*trav++ = *g_head++;
-		return (res);
+		res_size = ft_res_size((char *) s1, (char *) set, ft_strlen(s1));
+		res = ft_calloc((res_size + 1), sizeof(char));
+		if (res)
+		{
+			trav = res;
+			while (g_head <= g_tail)
+				*trav++ = *g_head++;
+			return (res);
+		}
 	}
 	return (NULL);
 }
