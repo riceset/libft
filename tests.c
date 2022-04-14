@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:44:21 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/14 16:55:10 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/14 17:48:50 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -324,6 +324,52 @@ void	putnbr_fd_test(int n, int fd)
 	ft_putnbr_fd(n, fd);
 }
 
+void	lstnew_test(void *content)
+{
+	printf("⚡️ lstnew:\n");
+}
+
+void	lstadd_front_test(t_list **lst, t_list *new)
+{
+	printf("⚡️ lstadd_front:\n");
+}
+
+void	lstsize_test(t_list *lst)
+{
+	printf("⚡️ lstsize:\n");
+}
+
+
+void	lstlast_test(t_list *lst)
+{
+	printf("⚡️ lstlast:\n");
+}
+
+void	lstadd_back_test(t_list **lst, t_list *new)
+{
+	printf("⚡️ lstadd_back:\n");
+}
+
+void	lstdelone_test(t_list *lst, void (*del)(void *))
+{
+	printf("⚡️ lstdelone:\n");
+}
+
+void	lstclear_test(t_list **lst, void(*del)(void *))
+{
+	printf("⚡️ lstclear:\n");
+}
+
+void	lstiter_test(t_list *lst, void (*f)(void *))
+{
+	printf("⚡️ lstiter:\n");
+}
+
+void	lstmap_test(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
+	printf("⚡️ lstmap:\n");
+}
+
 t_func	decide(char *arg)
 {
 	char	*cmd[] = {
@@ -361,7 +407,16 @@ t_func	decide(char *arg)
 	"putchar_fd",
 	"putstr_fd",
 	"putendl_fd",
-	"putnbr_fd"
+	"putnbr_fd",
+	"lstnew",
+	"lstadd_front",
+	"lstsize",
+	"lstlast",
+	"lstadd_back",
+	"lstdelone",
+	"lstclear",
+	"lstiter",
+	"lstmap"
 	};
 
 	for (t_func i = 0; i < CMDS; i++)

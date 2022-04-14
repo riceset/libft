@@ -6,18 +6,19 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 21:39:32 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/14 16:39:54 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/14 17:52:41 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TESTS_H
 # define TESTS_H
 
+# include "libft.h"
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
 
-#define CMDS 33
+#define CMDS 42
 
 typedef enum e_tests
 {
@@ -54,7 +55,16 @@ typedef enum e_tests
 	o_putchar_fd,
 	o_putstr_fd,
 	o_putendl_fd,
-	o_putnbr_fd
+	o_putnbr_fd,
+	o_lstnew,
+	o_lstadd_front,
+	o_lstsize,
+	o_lstlast,
+	o_lstadd_back,
+	o_lstdelone,
+	o_lstclear,
+	o_lstiter,
+	o_lstmap
 } t_func;
 
 t_func	decide(char *arg);
@@ -82,5 +92,14 @@ void	strmapi_test(char const *s, char (*f)(unsigned int, char));
 void	putchar_fd_test(char c, int fd);
 void	putstr_fd_test(char *s, int fd);
 void	putnbr_fd_test(int n, int fd);
+void	lstnew_test(void *content);
+void	lstadd_front_test(t_list **lst, t_list *new);
+void	lstsize_test(t_list *lst);
+void	lstlast_test(t_list *lst);
+void	lstadd_back_test(t_list **lst, t_list *new);
+void	lstdelone_test(t_list *lst, void (*del)(void *));
+void	lstclear_test(t_list **lst, void(*del)(void *));
+void	lstiter_test(t_list *lst, void (*f)(void *));
+void	lstmap_test(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif
