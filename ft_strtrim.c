@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:15:35 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/14 09:32:44 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/14 10:17:07 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static char	*g_head;
 static char	*g_tail;
 
-int	ft_res_size(char *s1, char *set, int len)
+static int	ft_res_size(char *s1, char *set, int len)
 {
 	char	*trav;
 

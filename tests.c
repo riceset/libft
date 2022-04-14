@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:44:21 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/14 08:30:27 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/14 10:10:51 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -314,4 +314,5 @@ void	putendl_fd_test(char *s, int fd)
 void	putnbr_fd_test(int n, int fd)
 {
 	printf("⚡️ putnbr_fd:\n");
+	ft_putnbr_fd(n, fd);
 }

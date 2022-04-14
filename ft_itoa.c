@@ -6,13 +6,13 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:19:45 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/14 07:50:24 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/14 10:18:32 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_count_digits(int n)
+static int	ft_count_digits(int n)
 {
 	int	res;
 
@@ -29,7 +29,7 @@ int	ft_count_digits(int n)
 	return (res);
 }
 
-char	*helpers_itoa(int n, int digits, char *res)
+static char	*helpers_itoa(int n, int digits, char *res)
 {
 	int	or_n;
 
