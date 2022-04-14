@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:44:21 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/13 16:39:26 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/13 23:01:33 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -272,6 +272,7 @@ void	strjoin_test(char const *s1, char const *s2)
 void	strtrim_test(char const *s1, char const *set)
 {
 	printf("⚡️ strtrim:\n");
+	printf("%s\n", ft_strtrim(s1, set));
 }
 
 void	split_test(char const *s, char c)
@@ -282,6 +283,7 @@ void	split_test(char const *s, char c)
 void	itoa_test(int n)
 {
 	printf("⚡️ itoa:\n");
+	printf("ft:\t%s\n", ft_itoa(n));
 }
 
 void	strmapi_test(char const *s, char (*f)(unsigned int, char))

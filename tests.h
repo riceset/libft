@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 21:39:32 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/13 15:30:14 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/13 21:51:22 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	calloc_test(size_t count, size_t size);
 void	atoi_test(const char *str);
 void	substr_test(char const *s, unsigned int start, size_t len);
 void	strjoin_test(char const *s1, char const *s2);
-void	ft_strtrim(char const *s1, char const *set);
+void	strtrim_test(char const *s1, char const *set);
 void	split_test(char const *s, char c);
 void	itoa_test(int n);
 void	strmapi_test(char const *s, char (*f)(unsigned int, char));

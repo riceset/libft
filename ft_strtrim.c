@@ -6,42 +6,43 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:15:35 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/13 18:53:20 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/13 23:42:26 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy_trimmed(char *dst, const char *src, char const *set)
-{
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	j = 0;
-	while (src[i])
-	{
-		while (set[j])
-		{
-			if (src[i] != set[j])
-				dst[i] = src[i];
-			j++;
-		}
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*res;
+	int		i;
+	int		j;
+	int		k;
 
 	if (s1 && set)
 	{
-		res = malloc((ft_strlen(s1) + 1) * sizeof(char));
+		res = ft_calloc((ft_strlen(s1) + 1), sizeof(char));
 		if (res)
 		{
+			i = 0;
+			k = i;
+			while (s1[i])
+			{
+				j = 0;
+				while (set[j])
+				{
+					if (s1[k] == set[j])
+					{
+						j = 0;
+						k++;
+					}
+					else
+						j++;
+				}
+				res[i] = s1[k];
+				k++;
+				i++;
+			}
 			return (res);
 		}
 	}

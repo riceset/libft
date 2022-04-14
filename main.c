@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 04:21:45 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/13 13:28:58 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/14 07:46:31 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ int	main(int argc, char **argv)
 
 	/* PART 2 */
 	{
-		substr_test("hello", 0, 999999999999999);
+		/* substr_test("hello", 0, 999999999999999); */
+		/* strtrim_test("hello\tworld", " \t"); */
+		itoa_test(INT_MAX);
 	}
 
 	/* BONUS */
