@@ -6,45 +6,58 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:15:35 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/13 23:42:26 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/14 09:24:14 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+
+static char	*g_head;
+static char	*g_tail;
+
+int	ft_res_size(char *s1, char const *set, int len)
+{
+	int		i;
+
+	i = 0;
+	g_head = s1;
+	g_tail = s1 + (len - 1);
+	while (set[i])
+	{
+		while (*g_head == set[i])
+		{
+			i = 0;
+			len--;
+			g_head++;
+		}
+		while (*g_tail == set[i])
+		{
+			i = 0;
+			len--;
+			g_tail--;
+		}
+		i++;
+	}
+	if (len < 0)
+		len = 0;
+	return (len);
+}
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*res;
-	int		i;
-	int		j;
-	int		k;
+	char	*trav;
+	int		res_size;
 
-	if (s1 && set)
+	res_size = ft_res_size((char *) s1, set, ft_strlen(s1));
+	res = ft_calloc((res_size + 1), sizeof(char));
+	if (res)
 	{
-		res = ft_calloc((ft_strlen(s1) + 1), sizeof(char));
-		if (res)
-		{
-			i = 0;
-			k = i;
-			while (s1[i])
-			{
-				j = 0;
-				while (set[j])
-				{
-					if (s1[k] == set[j])
-					{
-						j = 0;
-						k++;
-					}
-					else
-						j++;
-				}
-				res[i] = s1[k];
-				k++;
-				i++;
-			}
-			return (res);
-		}
+		trav = res;
+		while (g_head <= g_tail)
+			*trav++ = *g_head++;
+		return (res);
 	}
 	return (NULL);
 }

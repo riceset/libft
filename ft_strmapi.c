@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:21:06 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/13 19:50:55 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/14 07:51:07 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		if (res)
 		{
 			i = 0;
-			while(s[i])
+			while (s[i])
 			{
 				res[i] = f(i, s[i]);
 				i++;
