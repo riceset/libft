@@ -6,13 +6,11 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 18:06:07 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/11 14:13:55 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/14 17:11:05 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-//go backwards
 
 char	*ft_strrchr(const char *s, int c)
 {

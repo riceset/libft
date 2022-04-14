@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 05:43:01 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/11 05:03:01 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/14 17:09:16 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	size_t	i;
 
 	i = 0;
-	if (dst != NULL || src != NULL)
+	if (dst || src)
 	{
 		while (i < n)
 		{
