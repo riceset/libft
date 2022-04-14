@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 21:39:32 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/13 21:51:22 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/14 16:39:54 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,47 @@
 # include <stdio.h>
 # include <string.h>
 
+#define CMDS 33
+
+typedef enum e_tests
+{
+	o_isalpha = 1,
+	o_isdigit,
+	o_isalnum,
+	o_isascii,
+	o_isprint,
+	o_strlen,
+	o_memset,
+	o_bzero,
+	o_memcpy,
+	o_memmove,
+	o_strlcpy,
+	o_strlcat,
+	o_toupper,
+	o_tolower,
+	o_strchr,
+	o_strrchr,
+	o_strncmp,
+	o_memchr,
+	o_memcmp,
+	o_strnstr,
+	o_atoi,
+	o_calloc,
+	o_strdup,
+	o_substr,
+	o_strjoin,
+	o_strtrim,
+	o_split,
+	o_itoa,
+	o_strmapi,
+	o_striteri,
+	o_putchar_fd,
+	o_putstr_fd,
+	o_putendl_fd,
+	o_putnbr_fd
+} t_func;
+
+t_func	decide(char *arg);
 void	chr_test(int (*smth)(int), int c);
 void	strlen_test(const char *s);
 void	memset_test(char *b, int c, size_t len);

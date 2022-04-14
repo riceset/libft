@@ -6,12 +6,13 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 07:44:21 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/14 10:10:51 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/14 16:55:10 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "tests.h"
+
 
 void	chr_test(int (*smth)(int), int c)
 {
@@ -154,18 +155,18 @@ void	strlcat_test(char *dst, const char *src, size_t f_dst_s)
 
 void	strchr_test(char *(*f)(const char *s, int c), const char *s, int c)
 {
-	printf("⚡️ strchr:\n");
-
 	char	*rt1;
 	char	*rt2;
 
 	if (f == strchr)
 	{
+		printf("⚡️ strchr:\n");
 		rt1 = strchr(s, c);
 		rt2 = ft_strchr(s, c);
 	}
 	else if (f == strrchr)
 	{
+		printf("⚡️ strrchr:\n");
 		rt1 = strrchr(s, c);
 		rt2 = ft_strrchr(s, c);
 	}
@@ -283,36 +284,88 @@ void	split_test(char const *s, char c)
 void	itoa_test(int n)
 {
 	printf("⚡️ itoa:\n");
-	printf("ft:\t%s\n", ft_itoa(n));
+	printf("%s\n", ft_itoa(n));
 }
 
 void	strmapi_test(char const *s, char (*f)(unsigned int, char))
 {
 	printf("⚡️ strmapi:\n");
+	printf("%s\n", ft_strmapi(s, f));
 }
 
 void	striteri_test(char *s, void (*f)(unsigned int, char*))
 {
 	printf("⚡️ striteri:\n");
+	ft_striteri(s, f);
+	printf("%s\n", s);
 }
 
 void	putchar_fd_test(char c, int fd)
 {
 	printf("⚡️ putchar_fd:\n");
+	ft_putchar_fd(c, fd);
 }
 
 void	putstr_fd_test(char *s, int fd)
 {
 	printf("⚡️ putstr_fd:\n");
+	ft_putstr_fd(s, fd);
 }
 
 void	putendl_fd_test(char *s, int fd)
 {
 	printf("⚡️ putendl_fd:\n");
+	ft_putendl_fd(s, fd);
 }
 
 void	putnbr_fd_test(int n, int fd)
 {
 	printf("⚡️ putnbr_fd:\n");
 	ft_putnbr_fd(n, fd);
+}
+
+t_func	decide(char *arg)
+{
+	char	*cmd[] = {
+	"",
+	"isalpha",
+	"isdigit",
+	"isalnum",
+	"isascii",
+	"isprint",
+	"strlen",
+	"memset",
+	"bzero",
+	"memcpy",
+	"memmove",
+	"strlcpy",
+	"strlcat",
+	"toupper",
+	"tolower",
+	"strchr",
+	"strrchr",
+	"strncmp",
+	"memchr",
+	"memcmp",
+	"strnstr",
+	"atoi",
+	"calloc",
+	"strdup",
+	"substr",
+	"strjoin",
+	"strtrim",
+	"split",
+	"itoa",
+	"strmapi",
+	"striteri",
+	"putchar_fd",
+	"putstr_fd",
+	"putendl_fd",
+	"putnbr_fd"
+	};
+
+	for (t_func i = 0; i < CMDS; i++)
+		if (strcmp(cmd[i], arg) == 0)
+			return (i);
+	return (0);
 }
