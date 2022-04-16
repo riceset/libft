@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:15:35 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/14 12:22:54 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/15 20:51:41 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,36 @@
 
 static int	ft_res_size(char *s1, char *set, char **head, char **tail)
 {
-	char	*trav;
+	char	*trav_set;
 	char	len;
 
-	trav = set;
+	trav_set = set;
 	len = ft_strlen(s1);
 	*head = s1;
 	*tail = s1 + (len - 1);
-	while (*trav)
+	while (*trav_set)
 	{
-		while (**head == *trav)
+		while (**head == *trav_set)
 		{
-			trav = set;
+			trav_set = set;
 			len--;
 			(*head)++;
 		}
-		while (**tail == *trav)
+		while (**tail == *trav_set)
 		{
-			trav = set;
+			trav_set = set;
 			len--;
 			(*tail)--;
 		}
-		trav++;
+		trav_set++;
 	}
 	return (len);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*res;
-	char	*trav;
+	char	*res_h;
+	char	*trav_res;
 	char	*head;
 	char	*tail;
 	int		res_size;
@@ -53,13 +53,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 		res_size = ft_res_size((char *) s1, (char *) set, &head, &tail);
 		if (res_size < 0)
 			res_size = 0;
-		res = ft_calloc((res_size + 1), sizeof(char));
-		if (res)
+		res_h = ft_calloc((res_size + 1), sizeof(char));
+		if (res_h)
 		{
-			trav = res;
+			trav_res = res_h;
 			while (head <= tail)
-				*trav++ = *head++;
-			return (res);
+				*trav_res++ = *head++;
+			return (res_h);
 		}
 	}
 	return (NULL);
