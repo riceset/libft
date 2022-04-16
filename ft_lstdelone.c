@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 22:06:09 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/15 22:06:57 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/15 23:11:05 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	del(lst);
+	if (lst && del)
+	{
+		del(lst->content);
+		free(lst);
+	}
 }

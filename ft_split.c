@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/15 21:06:41 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/15 23:27:48 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/04/13 15:16:58 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/04/15 23:05:48 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+char	**ft_split(char const *s, char c)
 {
-	int		size;
-
-	size = 0;
-	while (lst)
-	{
-		size++;
-		lst = lst->next;
-	}
-	return (size);
+	(void) s;
+	(void) c;
+	char **a = malloc(10);
+	return (a);
 }
