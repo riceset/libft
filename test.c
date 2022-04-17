@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/09 18:07:49 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/15 23:44:39 by tkomeno          ###   ########.fr       */
+/*   Created: 2022/04/17 03:40:01 by tkomeno           #+#    #+#             */
+/*   Updated: 2022/04/17 03:45:30 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+#define SUCCESS 0
+
+struct node
 {
-	char	*trav;
-	size_t	i;
+	int 		n;
+	struct node *next;
+};
 
-	trav = (char *) s;
-	i = 0;
-	while (i < n)
-	{
-		if (*trav == (unsigned char) c)
-			return (trav);
-		trav++;
-		i++;
-	}
-	return (NULL);
+typedef struct node node;
+
+int	main(int argc, char **argv)
+{
+	for (int i = 1; i <= 10; i++)
+		printf("%d\n", i);
+	
+	printf("👋 Hello World!\n");
+
+	return (SUCCESS);
+}
+
+void	do_nothing(void)
+{
 }

@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:16:58 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/15 23:05:48 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/16 00:53:15 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,20 @@
 
 char	**ft_split(char const *s, char c)
 {
-	(void) s;
-	(void) c;
-	char **a = malloc(10);
-	return (a);
+	int		i;
+	char	*tmp;
+	char	*head;
+	char	*tail;
+
+	i = 0;
+
+	head = (char *) s;
+	while (s[i])
+	{
+		while (s[i] != c)
+			i++;
+		tmp = malloc(i + 1);
+		if (!tmp)
+			return (NULL);
+	}
 }
