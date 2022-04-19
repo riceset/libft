@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/19 17:07:08 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/19 18:40:52 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@
 static void	test_is(int (*is)(int));
 static void	test_strlen(char *s);
 static void	test_memset(void *s, int c, size_t len);
+static void	test_bzero(void *b, size_t len);
 
 int	main(void)
 {
-	// test_is(ft_isprint);
-	// test_strlen("god");
-	test_memset("Hello World", 'H', 3);
+	test_is(ft_isprint);
+	test_strlen("god");
+	test_memset("AAA", '5', 4);
+	test_bzero("Hello", 3);
 	return (0);
 }
 
@@ -116,9 +118,42 @@ static void	test_memset(void *s, int c, size_t len)
 	free(or_s);
 	free(ft_s);
 }
-static void	test_bzero(void)
+
+static void	test_bzero(void *b, size_t len)
 {
+	char	*or_s;
+	char	*ft_s;
+
+	or_s = strdup(b);
+	ft_s = strdup(b);
+	bzero(or_s, len);
+	bzero(ft_s, len);
 	printf("\n🌲 \e[4;36mTests for ft_bzero:\n\e[0;0m");
+	printf("'\\0' --> \"%s\" (%zu)\e[0;0m\n",
+			(char *)b,
+			len);
+	printf("or:\t\"");
+	for (size_t i = 0, n = ft_strlen((char *)b); i < n; i++)
+	{
+		if (or_s[i])
+			printf("%c", or_s[i]);
+		else
+			printf("\\0");
+	}
+	printf("\"\nft:\t\"");
+	for (size_t i = 0, n = ft_strlen((char *)b); i < n; i++)
+	{
+		if (ft_s[i])
+			printf("%c", or_s[i]);
+		else
+			printf("\\0");
+	}
+	printf("\"\n");
+	printf("res:\t%s\e[0;0m\n", memcmp(or_s, ft_s, strlen((char *)b)
+				+ 1) == 0 ? "\e[0;32m OK" : "\e[0;31m KO");
+	puts("");
+	free(or_s);
+	free(ft_s);
 }
 static void	test_memcpy(void)
 {
