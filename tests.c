@@ -6,15 +6,14 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/19 00:13:26 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/19 01:59:26 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
 
 #define ASCII_MIN 0
 #define ASCII_MAX 127
@@ -30,6 +29,8 @@ int	main(void)
 static void	test_is(int (*is)(int))
 {
 	char	n[8];
+	char	grn[16];
+	char	red[17];
 
 	if (is == ft_isalpha)
 		strcpy(n, "isalpha");
@@ -43,38 +44,37 @@ static void	test_is(int (*is)(int))
 		strcpy(n, "isprint");
 	else
 		return ;
-	printf("🌲 \e[0;35m Tests for \"ft_%s\"\n", n);
+	printf("🌲 \e[4;36mTests for ft_%s:\n", n);
 	for (int i = ASCII_MIN; i <= ASCII_MAX; i++)
 	{
 		if (is(i))
 		{
 			if (isprint(i))
-				printf("\e[0;32m '%c'\t%s\n", i, n);
+				printf("\e[0;0m'%c'\t\e[0;32m%s\n", i, n);
 			else
-				printf("\e[0;32m '%02X'\t%s\n", i, n);
+				printf("\e[0;0m'%02X'\t\e[0;32m%s\n", i, n);
 		}
 		else
 		{
 			if (isprint(i))
-				printf("\e[0;31m '%c'\t!%s\n", i, n);
+				printf("\e[0;0m'%c'\t\e[0;31m!%s\n", i, n);
 			else
-				printf("\e[0;31m '%02X'\t!%s\n", i, n);
+				printf("\e[0;0m'%02X'\t\e[0;31m!%s\n", i, n);
 		}
 	}
-}
-
-static void	test_isdigit(void)
-{
-}
-static void	test_isalnum(void)
-{
-}
-
-static void	test_isascii(void)
-{
-}
-static void	test_isprint(void)
-{
+	strcpy(grn, "\e[0;32m ");
+	strcat(grn, n);
+	strcpy(red, "\e[0;31m !");
+	strcat(red, n);
+	printf("\n🌳 \e[4;36mOTHER TESTS:\n\e[0;0m");
+	printf("ASCII_MIN:\t%s\t\e[0;0m\n",
+			is(ASCII_MIN) ? grn : red);
+	printf("ASCII_MAX:\t%s\t\e[0;0m\n",
+			is(ASCII_MAX) ? grn : red);
+	printf("INT_MIN:\t%s\t\e[0;0m\n",
+			is(INT_MIN) ? grn : red);
+	printf("INT_MAX:\t%s\t\e[0;0m\n",
+			is(INT_MAX) ? grn : red);
 }
 
 static void	test_strlen(void)
