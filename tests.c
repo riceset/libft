@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/19 18:40:52 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/19 18:51:50 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(void)
 	test_is(ft_isprint);
 	test_strlen("god");
 	test_memset("AAA", '5', 4);
-	test_bzero("Hello", 3);
+	test_bzero("hello world", 5);
 	return (0);
 }
 
@@ -51,7 +51,7 @@ static void	test_is(int (*is)(int))
 		strcpy(n, "isprint");
 	else
 		return ;
-	printf("\n🌲 \e[4;36mTests for ft_%s:\n\e[0;0m", n);
+	printf("\n\e[4;36mTests for ft_%s:\n\e[0;0m", n);
 	for (int i = ASCII_MIN; i <= ASCII_MAX; i++)
 	{
 		if (is(i))
@@ -73,7 +73,7 @@ static void	test_is(int (*is)(int))
 	strcat(grn, n);
 	strcpy(red, "\e[0;31m !");
 	strcat(red, n);
-	printf("\n🌳 \e[4;36mOTHER TESTS:\n\e[0;0m");
+	printf("\n\e[4;36mOTHER TESTS:\n\e[0;0m");
 	printf("ASCII_MIN - 1:\t%s\t\e[0;0m\n",
 			is(ASCII_MIN - 1) ? grn : red);
 	printf("ASCII_MAX + 1:\t%s\t\e[0;0m\n",
@@ -86,7 +86,7 @@ static void	test_is(int (*is)(int))
 
 static void	test_strlen(char *s)
 {
-	printf("\n🌲 \e[4;36mTests for ft_strlen:\n\e[0;0m");
+	printf("\n\e[4;36mTests for ft_strlen:\n\e[0;0m");
 	printf("str:\t\"%s\"\nor: \t'%zu'\nft: \t'%zu'\nres:\t%s\n\e[0;0m\n", s,
 			ft_strlen(s), strlen(s),
 			(ft_strlen(s) == strlen(s)) ? "\e[0;32m OK" : "\e[0;33m KO");
@@ -107,7 +107,7 @@ static void	test_memset(void *s, int c, size_t len)
 
 	or_s = strdup(s);
 	ft_s = strdup(s);
-	printf("\n🌲 \e[4;36mTests for ft_memset:\n\e[0;0m");
+	printf("\n\e[4;36mTests for ft_memset:\n\e[0;0m");
 	printf("'%c' --> \"%s\" (%zu)\nor: \t\"%s\"\nft: \t\"%s\"\nres:\t%s\e[0;0m\n",
 			c,
 			(char *)s,
@@ -128,25 +128,25 @@ static void	test_bzero(void *b, size_t len)
 	ft_s = strdup(b);
 	bzero(or_s, len);
 	bzero(ft_s, len);
-	printf("\n🌲 \e[4;36mTests for ft_bzero:\n\e[0;0m");
+	printf("\n\e[4;36mTests for ft_bzero:\n\e[0;0m");
 	printf("'\\0' --> \"%s\" (%zu)\e[0;0m\n",
 			(char *)b,
 			len);
 	printf("or:\t\"");
-	for (size_t i = 0, n = ft_strlen((char *)b); i < n; i++)
+	for (size_t i = 0, n = ft_strlen((char *)b); i < n + 1; i++)
 	{
 		if (or_s[i])
 			printf("%c", or_s[i]);
 		else
-			printf("\\0");
+			printf("\e[0;101m\\0\e[0;0m");
 	}
 	printf("\"\nft:\t\"");
-	for (size_t i = 0, n = ft_strlen((char *)b); i < n; i++)
+	for (size_t i = 0, n = ft_strlen((char *)b); i < n + 1; i++)
 	{
 		if (ft_s[i])
-			printf("%c", or_s[i]);
+			printf("%c", ft_s[i]);
 		else
-			printf("\\0");
+			printf("\e[0;101m\\0\e[0;0m");
 	}
 	printf("\"\n");
 	printf("res:\t%s\e[0;0m\n", memcmp(or_s, ft_s, strlen((char *)b)
@@ -157,13 +157,13 @@ static void	test_bzero(void *b, size_t len)
 }
 static void	test_memcpy(void)
 {
-	printf("\n🌲 \e[4;36mTests for ft_memcpy:\n\e[0;0m");
+	printf("\n\e[4;36mTests for ft_memcpy:\n\e[0;0m");
 }
 static void	test_strlcpy(void)
 {
-	printf("\n🌲 \e[4;36mTests for ft_memmove:\n\e[0;0m");
+	printf("\n\e[4;36mTests for ft_memmove:\n\e[0;0m");
 }
 static void	test_strlcat(void)
 {
-	printf("\n🌲 \e[4;36mTests for ft_strlcpy:\n\e[0;0m");
+	printf("\n\e[4;36mTests for ft_strlcpy:\n\e[0;0m");
 }
