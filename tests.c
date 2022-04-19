@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/19 01:59:26 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/19 02:37:14 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,13 @@
 #define ASCII_MAX 127
 
 static void	test_is(int (*is)(int));
+static void	test_strlen(char *s);
 
 int	main(void)
 {
-	test_is(ft_isprint);
+	test_is(ft_isalnum);
+	test_strlen("");
+	test_strlen("abc");
 	return (0);
 }
 
@@ -44,7 +47,7 @@ static void	test_is(int (*is)(int))
 		strcpy(n, "isprint");
 	else
 		return ;
-	printf("🌲 \e[4;36mTests for ft_%s:\n", n);
+	printf("\n🌲 \e[4;36mTests for ft_%s:\n\e[0;0m", n);
 	for (int i = ASCII_MIN; i <= ASCII_MAX; i++)
 	{
 		if (is(i))
@@ -77,23 +80,36 @@ static void	test_is(int (*is)(int))
 			is(INT_MAX) ? grn : red);
 }
 
-static void	test_strlen(void)
+static void	test_strlen(char *s)
 {
-}
-static void	test_memset(void)
-{
+	printf("\n🌲 \e[4;36mTests for ft_strlen:\n\e[0;0m");
+	printf("str:\t\"%s\"\nor: \t'%zu'\nft: \t'%zu'\nres:\t%s\n\e[0;0m\n", s, ft_strlen(s), strlen(s),
+		(ft_strlen(s) == strlen(s)) ? "\e[0;32m OK" : "\e[0;33m KO");
+	s = "";
+	printf("str:\t\"%s\"\nor: \t'%zu'\nft: \t'%zu'\nres:\t%s\n\e[0;0m\n", s, ft_strlen(s), strlen(s),
+		(ft_strlen(s) == strlen(s)) ? "\e[0;32m OK" : "\e[0;33m KO");
+	s = "Hello!";
+	printf("str:\t\"%s\"\nor: \t'%zu'\nft: \t'%zu'\nres:\t%s\n\e[0;0m\n", s, ft_strlen(s), strlen(s),
+		(ft_strlen(s) == strlen(s)) ? "\e[0;32m OK" : "\e[0;33m KO");
 }
 
+static void	test_memset(void)
+{
+	printf("\n🌲 \e[4;36mTests for ft_memset:\n\e[0;0m");
+}
 static void	test_bzero(void)
 {
+	printf("\n🌲 \e[4;36mTests for ft_bzero:\n\e[0;0m");
 }
 static void	test_memcpy(void)
 {
+	printf("\n🌲 \e[4;36mTests for ft_memcpy:\n\e[0;0m");
 }
-
 static void	test_strlcpy(void)
 {
+	printf("\n🌲 \e[4;36mTests for ft_memmove:\n\e[0;0m");
 }
 static void	test_strlcat(void)
 {
+	printf("\n🌲 \e[4;36mTests for ft_strlcpy:\n\e[0;0m");
 }
