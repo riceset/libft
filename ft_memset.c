@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 04:43:14 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/18 23:23:09 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/19 04:48:46 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memset(void *b, int c, size_t len)
 {
 	size_t	i;
 
-	i = SIZE_MAX;
+	i = -1;
 	while (++i < len)
 		((unsigned char *)b)[i] = (unsigned char)c;
 	return (b);
