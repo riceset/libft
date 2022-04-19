@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 05:29:11 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/10 22:44:02 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/19 19:13:46 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,5 @@
 
 void	ft_bzero(void *b, size_t len)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < len)
-	{
-		((char *)b)[i] = 0;
-		i++;
-	}
+	ft_memset(b, '\0', len);
 }
