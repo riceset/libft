@@ -6,12 +6,11 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 05:43:01 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/19 21:00:14 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/20 03:58:43 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
