@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/20 06:31:36 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/20 07:26:58 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	main(void)
 	// test_bzero("hello world", 2);
 	// test_memcpy_memmove(ft_memmove, "Hello", 6);
 	// test_strlcpy("Hello", -1);
+	// test_strlcat("Hello ", "World", 12);
+	test_to_upper_lower(ft_toupper, 'c');
 	return (0);
 }
 
@@ -322,4 +324,64 @@ static void test_strlcpy(char *src, size_t cpysize)
 			printf(REDHB "\\0" CRESET);
 	}
 	printf("\"\n");
+	free(or);
+	free(ft);
+}
+
+static void test_strlcat(char *dst, const char *src, size_t f_dst_s)
+{
+	char *or = strdup(dst);
+	char *ft = strdup(dst);
+	printf(UCYN "\nTests for ft_strlcat:\n" CRESET);
+	printf("sr:    \"");
+	for (size_t i = 0, n = ft_strlen(src) + ft_strlen(dst) + 1; i < n; i++)
+	{
+		if (isprint(src[i]))
+			printf("%c", src[i]);
+		else if (src[i] == '\0')
+			printf(REDHB "\\0" CRESET);
+		else
+			printf(BLKHB "\\😈" CRESET);
+	}
+	printf("\"\n");
+	printf("or:    \"");
+	strlcat(or, src, f_dst_s);
+	for (size_t i = 0, n = ft_strlen(src) + ft_strlen(dst) + 1; i < n; i++)
+	{
+		if (isprint(or[i]))
+			printf("%c", or[i]);
+		else if (or[i] == '\0')
+			printf(REDHB "\\0" CRESET);
+		else
+			printf(BLKHB "\\😈" CRESET);
+	}
+	printf("\"\n");
+	printf("ft:    \"");
+	strlcat(ft, src, f_dst_s);
+	for (size_t i = 0, n = ft_strlen(src) + ft_strlen(dst) + 1; i < n; i++)
+	{
+		if (isprint(ft[i]))
+			printf("%c", ft[i]);
+		else if (ft[i] == '\0')
+			printf(REDHB "\\0" CRESET);
+		else
+			printf(BLKHB "\\😈" CRESET);
+	}
+	printf("\"\n");
+	free(or);
+	free(ft);
+}
+
+static void test_to_upper_lower(int (*f)(int c), int c)
+{
+	if (f == ft_toupper)
+		printf(UCYN "\nTests for ft_toupper:\n" CRESET);
+	else if (f == ft_tolower)
+		printf(UCYN "\nTests for ft_tolower:\n" CRESET);
+	printf("c:    '%c'\n", c);
+	if (f == ft_toupper)
+		printf("or:   '%c'\n", toupper(c));
+	else if (f == ft_tolower)
+		printf("or:   '%c'\n", tolower(c));
+	printf("ft:   '%c'\n", f(c));
 }
