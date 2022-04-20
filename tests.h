@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 22:53:05 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/20 02:02:34 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/20 05:59:29 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ static void	test_memmove(const void *src, size_t n);
 static void	test_memcpy_memmove(void *(*f)(void *, const void *, size_t),
 								const void *src,
 								size_t n);
+static void test_strlcpy(char *src, size_t cpysize);
 
 #endif

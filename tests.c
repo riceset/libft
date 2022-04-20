@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/20 04:34:10 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/20 06:31:36 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	main(void)
 	// test_strlen("god");
 	// test_memset("AAA", '5', 4);
 	// test_bzero("hello world", 2);
-	test_memcpy_memmove(ft_memmove, "Hello", 6);
+	// test_memcpy_memmove(ft_memmove, "Hello", 6);
+	// test_strlcpy("Hello", -1);
 	return (0);
 }
 
@@ -285,4 +286,40 @@ static void	test_memcpy_memmove(void *(*f)(void *, const void *, size_t),
 	free(or);
 	free(ft);
 	
+}
+
+static void test_strlcpy(char *src, size_t cpysize)
+{
+	printf(UCYN "\nTests for ft_strlcpy:\n" CRESET);
+	printf("sr:    \"");
+	for (size_t i = 0, n = ft_strlen(src) + 1; i < n; i++)
+	{
+		if (src[i])
+			printf("%c", src[i]);
+		else
+			printf(REDHB "\\0" CRESET);
+	}
+	printf("\"\n");
+	printf("or:    \"");
+	char *or = malloc(ft_strlen(src) + 1);
+	strlcpy(or, src, cpysize);
+	for (size_t i = 0, n = ft_strlen(src) + 1; i < n; i++)
+	{
+		if (or[i])
+			printf("%c", or[i]);
+		else
+			printf(REDHB "\\0" CRESET);
+	}
+	printf("\"\n");
+	printf("ft:    \"");
+	char *ft = malloc(ft_strlen(src) + 1);
+	strlcpy(ft, src, cpysize);
+	for (size_t i = 0, n = ft_strlen(src) + 1; i < n; i++)
+	{
+		if (ft[i])
+			printf("%c", ft[i]);
+		else
+			printf(REDHB "\\0" CRESET);
+	}
+	printf("\"\n");
 }
