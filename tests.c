@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/20 07:44:25 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/21 01:18:23 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,37 @@ int	main(void)
 {
 	// test_is(ft_isprint);
 	// test_strlen("god");
-	// test_memset("AAA", '5', 4);
+	test_memset("AAA", '5', 4);
 	// test_bzero("hello world", 2);
 	// test_memcpy_memmove(ft_memmove, "Hello", 6);
 	// test_strlcpy("Hello", -1);
 	// test_strlcat("Hello ", "World", 12);
-	test_to_upper_lower(ft_tolower, 'C');
-	return (0);
+	// test_to_upper_lower(ft_tolower, 'C');
+	// test_strchr_strrchr(ft_strchr, "hello\0ccc", '\0');
+}
+
+//Helper function for test_memcpy_memmove
+//that resets all given strings to "WATERMELONJUICE".
+static void	h_reset_memcpy_memmove(char ** or, char **ft)
+{
+#define TEST_STR "WATERMELONJUICE"
+	* or = strcpy(malloc(16), TEST_STR);
+	*ft = strcpy(malloc(16), TEST_STR);
+}
+
+static void print_with_null(char *title, char *s, size_t n)
+{
+	printf("%s:\t\"", title);
+	for (size_t i = 0; i < n; i++)
+	{
+		if (isprint(s[i]))
+			printf("%c", s[i]);
+		else if (s[i] == '\0')
+			printf(REDHB "\\0" CRESET);
+		else
+			printf(BLKHB "\\😈" CRESET);
+	}
+	printf("\"\n");
 }
 
 static void	test_is(int (*is)(int))
@@ -104,13 +128,20 @@ static void	test_memset(void *s, int c, size_t len)
 	or_s = strdup(s);
 	ft_s = strdup(s);
 	printf(UCYN "\nTests for ft_memset:\n" CRESET);
-	printf("'%c' --> \"%s\" (%zu)\nor: \t\"%s\"\nft: \t\"%s\"\nres:\t%s\n" CRESET,
-			c,
-			(char *)s,
-			len,
-			(char *)memset(or_s, c, len),
-			(char *)ft_memset(ft_s, c, len),
-			strcmp(or_s, ft_s) == 0 ? GRN "OK" : RED "KO");
+
+	printf("'%c' -->\t(%zu)\n", c, len);
+	print_with_null("src", s, ft_strlen(s) + 1 > len ? ft_strlen(s) + 1 : len);
+	print_with_null("or", (char *)memset(or_s, c, len), ft_strlen(s) + 1 > len ? ft_strlen(s) + 1 : len);
+	print_with_null("ft", (char *)ft_memset(ft_s, c, len), ft_strlen(s) + 1 > len ? ft_strlen(s) + 1 : len);
+	printf("res:\t%s\n", strcmp(or_s, ft_s) == 0 ? GRN "OK" : RED "KO");
+	// printf("'%c' --> \"%s\" (%zu)\nor: \t\"%s\"\nft: \t\"%s\"\nres:\t%s\n" CRESET,
+	// 		c,
+	// 		(char *)s,
+	// 		len,
+	// 		(char *)memset(or_s, c, len),
+	// 		(char *)ft_memset(ft_s, c, len),
+	// 		strcmp(or_s, ft_s) == 0 ? GRN "OK" : RED "KO");
+
 	free(or_s);
 	free(ft_s);
 }
@@ -128,37 +159,13 @@ static void	test_bzero(void *b, size_t len)
 	printf("'\\0' --> \"%s\" (%zu)\n" CRESET,
 			(char *)b,
 			len);
-	printf("or:\t\"");
-	for (size_t i = 0, n = ft_strlen((char *)b); i < (n > len ? n
-				+ 1 : len); i++)
-	{
-		if (or_s[i])
-			printf("%c", or_s[i]);
-		else
-			printf(REDHB "\\0" CRESET);
-	}
-	printf("\"\nft:\t\"");
-	for (size_t i = 0, n = ft_strlen((char *)b); i < (n > len ? n
-				+ 1 : len); i++)
-	{
-		if (ft_s[i])
-			printf("%c", ft_s[i]);
-		else
-			printf(REDHB "\\0" CRESET);
-	}
-	printf("\"\nres:\t%s\n" CRESET, memcmp(or_s, ft_s, strlen((char *)b)
+
+	print_with_null("or", or_s, ft_strlen(b) + 1 > len ? ft_strlen(b) + 1 : len);
+	print_with_null("ft", ft_s, ft_strlen(b) + 1 > len ? ft_strlen(b) + 1 : len);
+	printf("res:\t%s\n" CRESET, memcmp(or_s, ft_s, strlen((char *)b)
 			+ 1) == 0 ? GRN "OK" : RED "KO");
 	free(or_s);
 	free(ft_s);
-}
-
-//Helper function for test_memcpy_memmove
-//that resets all given strings to "WATERMELONJUICE".
-static void	h_reset_memcpy_memmove(char ** or, char **ft)
-{
-#define TEST_STR "WATERMELONJUICE"
-	* or = strcpy(malloc(16), TEST_STR);
-	*ft = strcpy(malloc(16), TEST_STR);
 }
 
 static void	test_memcpy_memmove(void *(*f)(void *, const void *, size_t),
@@ -182,27 +189,9 @@ static void	test_memcpy_memmove(void *(*f)(void *, const void *, size_t),
 	else if (f == ft_memmove)
 		memmove(or_s, src, n);
 	f(ft_s, src, n);
-	printf("or:\t\"");
-	for (size_t i = 0, len = ft_strlen(src) + 1; i < (len > n ? len : n); i++)
-	{
-		if (isprint(or_s[i]))
-			printf("%c", or_s[i]);
-		else if (or_s[i] == '\0')
-			printf(REDHB "\\0" CRESET);
-		else
-			printf(BLKHB "\\😈" CRESET);
-	}
-	printf("\"\nft:\t\"");
-	for (size_t i = 0, len = ft_strlen(src) + 1; i < (len > n ? len : n); i++)
-	{
-		if (isprint(ft_s[i]))
-			printf("%c", ft_s[i]);
-		else if (ft_s[i] == '\0')
-			printf(REDHB "\\0" CRESET);
-		else
-			printf(BLKHB "\\😈" CRESET);
-	}
-	printf("\"\nres:\t%s\n" CRESET, memcmp(or_s, ft_s, strlen((char *)src)
+	print_with_null("or", or_s, (ft_strlen(src) + 1 > n) ? ft_strlen(src) + 1 : n);
+	print_with_null("ft", ft_s, (ft_strlen(src) + 1 > n) ? ft_strlen(src) + 1 : n);
+	printf("res:\t%s\n" CRESET, memcmp(or_s, ft_s, strlen((char *)src)
 			+ 1) == 0 ? GRN "OK" : RED "KO");
 	free(or_s);
 	free(ft_s);
@@ -210,7 +199,7 @@ static void	test_memcpy_memmove(void *(*f)(void *, const void *, size_t),
 	char * or ;
 	h_reset_memcpy_memmove(& or, &ft);
 	printf(BHGRN "\nPATTERN 1 (dest < src):\n" CRESET);
-	memcpy(or, or +5, 5);
+	memcpy(or, or + 5, 5);
 	ft_memcpy(ft, ft + 5, 5);
 	printf("or_cpy: \"%s\"\n", or);
 	printf("ft_cpy: \"%s\"\n", ft);
@@ -292,6 +281,7 @@ static void	test_strlcpy(char *src, size_t cpysize)
 	char	*ft;
 
 	printf(UCYN "\nTests for ft_strlcpy:\n" CRESET);
+	// print_with_null("src", src, ft_strlen(src) + 1);
 	printf("sr:    \"");
 	for (size_t i = 0, n = ft_strlen(src) + 1; i < n; i++)
 	{
@@ -304,6 +294,7 @@ static void	test_strlcpy(char *src, size_t cpysize)
 	printf("or:    \"");
 	char * or = malloc(ft_strlen(src) + 1);
 	strlcpy(or, src, cpysize);
+	// print_with_null("or", or, ft_strlen(src) + 1);
 	for (size_t i = 0, n = ft_strlen(src) + 1; i < n; i++)
 	{
 		if (or [i])
@@ -315,6 +306,7 @@ static void	test_strlcpy(char *src, size_t cpysize)
 	printf("ft:    \"");
 	ft = malloc(ft_strlen(src) + 1);
 	strlcpy(ft, src, cpysize);
+	// print_with_null("ft", ft, ft_strlen(src) + 1);
 	for (size_t i = 0, n = ft_strlen(src) + 1; i < n; i++)
 	{
 		if (ft[i])
@@ -334,41 +326,11 @@ static void	test_strlcat(char *dst, const char *src, size_t f_dst_s)
 	char * or = strdup(dst);
 	ft = strdup(dst);
 	printf(UCYN "\nTests for ft_strlcat:\n" CRESET);
-	printf("sr:    \"");
-	for (size_t i = 0, n = ft_strlen(src) + ft_strlen(dst) + 1; i < n; i++)
-	{
-		if (isprint(src[i]))
-			printf("%c", src[i]);
-		else if (src[i] == '\0')
-			printf(REDHB "\\0" CRESET);
-		else
-			printf(BLKHB "\\😈" CRESET);
-	}
-	printf("\"\n");
-	printf("or:    \"");
+	print_with_null("src", (char *)src, ft_strlen(src) + ft_strlen(dst) + 1);
 	strlcat(or, src, f_dst_s);
-	for (size_t i = 0, n = ft_strlen(src) + ft_strlen(dst) + 1; i < n; i++)
-	{
-		if (isprint(or [i]))
-			printf("%c", or [i]);
-		else if (or [i] == '\0')
-			printf(REDHB "\\0" CRESET);
-		else
-			printf(BLKHB "\\😈" CRESET);
-	}
-	printf("\"\n");
-	printf("ft:    \"");
+	print_with_null("or", or, ft_strlen(src) + ft_strlen(dst) + 1);
 	strlcat(ft, src, f_dst_s);
-	for (size_t i = 0, n = ft_strlen(src) + ft_strlen(dst) + 1; i < n; i++)
-	{
-		if (isprint(ft[i]))
-			printf("%c", ft[i]);
-		else if (ft[i] == '\0')
-			printf(REDHB "\\0" CRESET);
-		else
-			printf(BLKHB "\\😈" CRESET);
-	}
-	printf("\"\n");
+	print_with_null("ft", ft, ft_strlen(src) + ft_strlen(dst) + 1);
 	free(or);
 	free(ft);
 }
@@ -387,6 +349,20 @@ static void	test_to_upper_lower(int (*f)(int c), int c)
 	printf("ft:    '%c'\n", f(c));
 	printf("\n" UCYN "TABLE:\n" CRESET);
 	for (int i = (f == ft_toupper ? 'a' : 'A'),
-			j = (f == ft_toupper ? 'z' : 'Z'); i <= j; i++)
+				j = (f == ft_toupper ? 'z' : 'Z');
+			i <= j;
+			i++)
 		printf("'%c' -> '%c'\n", i, f(i));
+}
+
+static void	test_strchr_strrchr(char *(*f)(const char *, int), const char *s,
+		int c)
+{
+	if (f == ft_strchr)
+		printf(UCYN "\nTests for ft_strchr:\n" CRESET);
+	else if (f == ft_strrchr)
+		printf(UCYN "\nTests for ft_strrchr:\n" CRESET);
+	print_with_null("str", (char *)s, ft_strlen(s) + 1);
+	print_with_null("or", strchr(s, c), ft_strlen(s) + 1);
+	print_with_null("ft", ft_strchr(s, c), ft_strlen(s) + 1);
 }
