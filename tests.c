@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/21 04:59:50 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/21 06:22:33 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,12 @@ int	main(void)
 	test_to_upper_lower(ft_tolower, 'C');
 	test_strchr_strrchr(ft_strchr, "hello\0ccc", '\0');
 	test_strncmp_memcmp((int (*)(const void *, const void *, size_t))ft_strncmp,
-			"Hel\0lo", "Hel\0l0", 6);
+						"Hel\0lo",
+						"Hel\0l0",
+						6);
 	test_memchr("Hello", '\0', 3);
 	test_strncmp_memcmp(ft_memcmp, "Hel\0lo", "Hel\0l0", 6);
+	test_strnstr("Hello World aaa", "World", 16);
 }
 
 static void	test_is(int (*is)(int))
@@ -264,40 +267,13 @@ static void	test_strlcpy(char *src, size_t cpysize)
 	char	*ft;
 
 	printf(UCYN "\nTests for ft_strlcpy:\n" CRESET);
-	// print_w_nul_nonprnt("src", src, ft_strlen(src) + 1);
-	printf("sr:    \"");
-	for (size_t i = 0, n = ft_strlen(src) + 1; i < n; i++)
-	{
-		if (src[i])
-			printf("%c", src[i]);
-		else
-			printf(REDHB "\\0" CRESET);
-	}
-	printf("\"\n");
-	printf("or:    \"");
+	print_w_nul_nonprnt("src", src, ft_strlen(src) + 1);
 	char * or = malloc(ft_strlen(src) + 1);
 	strlcpy(or, src, cpysize);
-	// print_w_nul_nonprnt("or", or, ft_strlen(src) + 1);
-	for (size_t i = 0, n = ft_strlen(src) + 1; i < n; i++)
-	{
-		if (or [i])
-			printf("%c", or [i]);
-		else
-			printf(REDHB "\\0" CRESET);
-	}
-	printf("\"\n");
-	printf("ft:    \"");
+	print_w_nul_nonprnt("or", or, ft_strlen(src) + 1);
 	ft = malloc(ft_strlen(src) + 1);
 	strlcpy(ft, src, cpysize);
-	// print_w_nul_nonprnt("ft", ft, ft_strlen(src) + 1);
-	for (size_t i = 0, n = ft_strlen(src) + 1; i < n; i++)
-	{
-		if (ft[i])
-			printf("%c", ft[i]);
-		else
-			printf(REDHB "\\0" CRESET);
-	}
-	printf("\"\n");
+	print_w_nul_nonprnt("ft", ft, ft_strlen(src) + 1);
 	free(or);
 	free(ft);
 }
@@ -350,6 +326,9 @@ static void	test_strchr_strrchr(char *(*f)(const char *, int), const char *s,
 	print_w_nul_nonprnt("str", (char *)s, ft_strlen(s) + 1);
 	print_w_nul_nonprnt("or", f(s, c), ft_strlen(s) + 1);
 	print_w_nul_nonprnt("ft", f(s, c), ft_strlen(s) + 1);
+	printf("res:\t%s\n" CRESET, strcmp(!strchr(s, c) ? "NULL" : strchr(s, c),
+				!ft_strchr(s, c) ? "NULL" : ft_strchr(s,
+					c)) == 0 ? GRN "OK" : RED "KO");
 }
 
 static void	test_strncmp_memcmp(int (*f)(const void *, const void *, size_t),
@@ -362,8 +341,10 @@ static void	test_strncmp_memcmp(int (*f)(const void *, const void *, size_t),
 	else if (f == ft_memcmp)
 		printf(UCYN "\nTests for ft_memcmp:\n" CRESET);
 	printf("n:\t(%zu)\n", n);
-	print_w_nul_nonprnt("s1", (char *)s1, ft_strlen(s1) + 1 > n ? ft_strlen(s1) + 1 : n);
-	print_w_nul_nonprnt("s2", (char *)s2, ft_strlen(s2) + 1 > n ? ft_strlen(s2) + 1 : n);
+	print_w_nul_nonprnt("s1", (char *)s1, ft_strlen(s1) + 1 > n ? ft_strlen(s1)
+			+ 1 : n);
+	print_w_nul_nonprnt("s2", (char *)s2, ft_strlen(s2) + 1 > n ? ft_strlen(s2)
+			+ 1 : n);
 	if (f == (int (*)(const void *, const void *, size_t))ft_strncmp)
 		printf("or:\t%d\n", strncmp(s1, s2, n));
 	else if (f == ft_memcmp)
@@ -380,16 +361,20 @@ static void	test_memchr(const void *s, int c, size_t n)
 	print_w_nul_nonprnt("str", (char *)s, ft_strlen(s) + 1);
 	print_w_nul_nonprnt("or", (char *)memchr(s, c, n), ft_strlen(s) + 1);
 	print_w_nul_nonprnt("ft", (char *)ft_memchr(s, c, n), ft_strlen(s) + 1);
+	printf("res:\t%s\n" CRESET, strcmp(!memchr(s, c, n) ? "NULL" : memchr(s, c,
+					n), !ft_memchr(s, c, n) ? "NULL" : ft_memchr(s, c,
+					n)) == 0 ? GRN "OK" : RED "KO");
 }
 
-static void	test_memcmp(const void *v1, const void *v2, size_t n)
+static void	test_strnstr(const char *str, const char *substr, size_t len)
 {
-	printf(UCYN "\nTests for ft_memcmp:\n" CRESET);
-	printf("n:\t(%zu)\n", n);
-	print_w_nul_nonprnt("s1", (char *)v1, ft_strlen(v1) + 1);
-	print_w_nul_nonprnt("s2", (char *)v2, ft_strlen(v2) + 1);
-	printf("or:\t%d\n", strncmp(v1, v2, n));
-	printf("ft:\t%d\n", ft_strncmp(v1, v2, n));
-	printf("res:\t%s\n" CRESET, strncmp(v1, v2, n) == ft_strncmp(v1, v2,
-				n) ? GRN "OK" : RED "KO");
+	printf(UCYN "\nTests for ft_memchr:\n" CRESET);
+	print_w_nul_nonprnt("str", (char *)str, ft_strlen(str) + 1);
+	print_w_nul_nonprnt("substr", (char *)substr, ft_strlen(substr) + 1);
+	print_w_nul_nonprnt("or", strnstr(str, substr, len), ft_strlen(str)
+			+ 1 > len ? ft_strlen(str) + 1 : len);
+	print_w_nul_nonprnt("ft", ft_strnstr(str, substr, len), ft_strlen(str)
+			+ 1 > len ? ft_strlen(str) + 1 : len);
+	printf("res:\t%s\n" CRESET, strcmp(strnstr(str, substr, len),
+				ft_strnstr(str, substr, len)) == 0 ? GRN "OK" : RED "KO");
 }

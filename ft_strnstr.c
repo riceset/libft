@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 18:09:47 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/13 12:43:24 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/21 05:21:36 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,17 @@ char	*ft_strnstr(const char *str, const char *substr, size_t len)
 	size_t	j;
 	size_t	k;
 
-	i = 0;
-	if (substr[i] == '\0')
+	if (substr[0] == '\0')
 		return ((char *)str);
-	while (str[i])
+	i = -1;
+	while (str[++i])
 	{
-		k = i;
-		j = 0;
+		k = i - 1;
+		j = -1;
 		if (str[i] == substr[0])
-		{
-			while (substr[j] && str[k] == substr[j])
-			{
+			while (str[++k] == substr[++j] && substr[j])
 				if (j + 1 == ft_strlen(substr) && k < len)
 					return ((char *)(str + i));
-				k++;
-				j++;
-			}
-		}
-		i++;
 	}
 	return (NULL);
 }
