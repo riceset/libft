@@ -6,12 +6,12 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/21 01:23:36 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/21 01:34:28 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "colors.h"
 #include "libft.h"
+#include "colors.h"
 #include "tests.h"
 #include <stddef.h>
 
@@ -19,37 +19,13 @@ int	main(void)
 {
 	// test_is(ft_isprint);
 	// test_strlen("god");
-	test_memset("AAA", '5', 4);
+	// test_memset("AAA", '5', 4);
 	// test_bzero("hello world", 2);
 	// test_memcpy_memmove(ft_memmove, "Hello", 6);
 	// test_strlcpy("Hello", -1);
 	// test_strlcat("Hello ", "World", 12);
 	// test_to_upper_lower(ft_tolower, 'C');
 	// test_strchr_strrchr(ft_strchr, "hello\0ccc", '\0');
-}
-
-//Helper function for test_memcpy_memmove
-//that resets all given strings to "WATERMELONJUICE".
-static void	h_reset_memcpy_memmove(char ** or, char **ft)
-{
-#define TEST_STR "WATERMELONJUICE"
-	* or = strcpy(malloc(16), TEST_STR);
-	*ft = strcpy(malloc(16), TEST_STR);
-}
-
-static void print_w_nul_nonprnt(char *title, char *s, size_t n)
-{
-	printf("%s:\t\"", title);
-	for (size_t i = 0; i < n; i++)
-	{
-		if (isprint(s[i]))
-			printf("%c", s[i]);
-		else if (s[i] == '\0')
-			printf(REDHB "\\0" CRESET);
-		else
-			printf(BLKHB "\\😈" CRESET);
-	}
-	printf("\"\n");
 }
 
 static void	test_is(int (*is)(int))

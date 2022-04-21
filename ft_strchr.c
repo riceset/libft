@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 18:05:12 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/20 23:56:16 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/21 01:26:34 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,20 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int i;
+	char	*trav;
 
-	i = -1;
-	while (s[++i] != (char)c)
+	trav = (char *) s;
+	if ((char) c == '\0')
 	{
-		if (s[i] == '\0')
-			return (NULL);
+		while (*trav)
+			trav++;
+		return (trav);
 	}
-	return ((char *)(s + i));
+	while (*trav)
+	{
+		if (*trav == (char) c)
+			return (trav);
+		trav++;
+	}
+	return (NULL);
 }

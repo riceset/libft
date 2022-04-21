@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 22:53:05 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/21 00:16:45 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/21 01:34:07 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,8 @@ static void test_strlcpy(char *src, size_t cpysize);
 static void test_strlcat(char *dst, const char *src, size_t f_dst_s);
 static void test_to_upper_lower(int (*f)(int c), int c);
 static void test_strchr_strrchr(char *(*f)(const char *, int), const char *s, int c);
+
+void	h_reset_memcpy_memmove(char ** or, char **ft);
+void print_w_nul_nonprnt(char *title, char *s, size_t n);
 
 #endif
