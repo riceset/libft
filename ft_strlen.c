@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 04:09:51 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/20 22:18:31 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/21 08:00:38 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	i;
+	const char *p;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	p = s;
+	while (*p)
+		p++;
+	return ((size_t)(p - s));
 }

@@ -6,39 +6,36 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 18:11:03 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/21 05:24:43 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/21 18:47:12 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
 int	ft_atoi(const char *str)
 {
-	int			i;
 	long long	res;
 	int			sign;
 
-	i = 0;
 	res = 0;
 	sign = 1;
-	while ((str[i] >= 0x09 && str[i] <= 0x0D) || str[i] == 0x20)
-		i++;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
+	while (*str == ' ' || ('\x09' <= *str && *str <= '\x0D'))
+		str++;
+	if (*str == '+' || *str == '-')
+		if (*str++ == '-')
 			sign = -1;
-		i++;
-	}
-	while (str[i] && ft_isdigit(str[i]))
+	while (ft_isdigit(*str))
 	{
-		res = res * 10 + (str[i] - '0');
-		if (res > INT_MAX && sign == 1)
-			return ((int) LONG_MAX);
-		if (res < INT_MIN && sign == -1)
-			return ((int) LONG_MIN);
-		i++;
+
+		if ((res * 10 + (*str - '0')) / 10 != res)
+		{
+			if (sign == 1)
+				return (-1);
+			if (sign == -1)
+				return (0);
+		}
+		res = res * 10 + (*str - '0');
+		str++;
 	}
 	return ((int)(res * sign));
 }

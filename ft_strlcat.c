@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 18:01:42 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/20 07:36:14 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/21 19:02:53 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t f_dst_s)
 	size_t	dst_len;
 	size_t	src_len;
 
+	if (!dst)
+		return (ft_strlen(src));
 	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
 	if (f_dst_s == 0)

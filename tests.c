@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/21 06:22:33 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/21 18:59:58 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,26 @@
 
 int	main(void)
 {
-	test_is(ft_isprint);
-	test_strlen("god");
-	test_memset("AAA", '5', 4);
-	test_bzero("hello world", 2);
-	test_memcpy_memmove(ft_memmove, "Hello", 6);
-	test_strlcpy("Hello", -1);
-	test_strlcat("Hello ", "World", 12);
-	test_to_upper_lower(ft_tolower, 'C');
-	test_strchr_strrchr(ft_strchr, "hello\0ccc", '\0');
-	test_strncmp_memcmp((int (*)(const void *, const void *, size_t))ft_strncmp,
-						"Hel\0lo",
-						"Hel\0l0",
-						6);
-	test_memchr("Hello", '\0', 3);
-	test_strncmp_memcmp(ft_memcmp, "Hel\0lo", "Hel\0l0", 6);
-	test_strnstr("Hello World aaa", "World", 16);
+	// test_is(ft_isprint);
+	// test_strlen("god");
+	// test_memset("AAA", '5', 4);
+	// test_bzero("hello world", 2);
+	// test_memcpy_memmove(ft_memmove, "Hello", 6);
+	// test_strlcpy("Hello", -1);
+	// test_strlcat("Hello ", "World", 12);
+	// test_strlcat(NULL, "World", 0);
+	printf("%zu\n", ft_strlcat(NULL, "World", 0));
+	// test_to_upper_lower(ft_tolower, 'C');
+	// test_strchr_strrchr(ft_strchr, "hello\0ccc", '\0');
+	// test_strncmp_memcmp((int (*)(const void *, const void *, size_t))ft_strncmp,
+	// 					"Hel\0lo",
+	// 					"Hel\0l0",
+	// 					6);
+	// test_memchr("Hello", '\0', 3);
+	// test_strncmp_memcmp(ft_memcmp, "Hel\0lo", "Hel\0l0", 6);
+	// test_strnstr("Hello World aaa", "World", 16);
+	// test_atoi("+1");
+	// test_atoi_inputs();
 }
 
 static void	test_is(int (*is)(int))
@@ -265,15 +269,20 @@ static void	test_memcpy_memmove(void *(*f)(void *, const void *, size_t),
 static void	test_strlcpy(char *src, size_t cpysize)
 {
 	char	*ft;
+	size_t	or_r;
+	size_t	ft_r;
 
 	printf(UCYN "\nTests for ft_strlcpy:\n" CRESET);
 	print_w_nul_nonprnt("src", src, ft_strlen(src) + 1);
 	char * or = malloc(ft_strlen(src) + 1);
-	strlcpy(or, src, cpysize);
+	or_r = strlcpy(or, src, cpysize);
 	print_w_nul_nonprnt("or", or, ft_strlen(src) + 1);
 	ft = malloc(ft_strlen(src) + 1);
-	strlcpy(ft, src, cpysize);
+	ft_r = strlcpy(ft, src, cpysize);
 	print_w_nul_nonprnt("ft", ft, ft_strlen(src) + 1);
+	printf("or_r:\t(%zu)\n", or_r);
+	printf("ft_r:\t(%zu)\n", ft_r);
+	printf("res:\t%s\n" CRESET, or_r == ft_r ? GRN "OK" : RED "KO");
 	free(or);
 	free(ft);
 }
@@ -281,16 +290,21 @@ static void	test_strlcpy(char *src, size_t cpysize)
 static void	test_strlcat(char *dst, const char *src, size_t f_dst_s)
 {
 	char	*ft;
+	size_t	or_r;
+	size_t	ft_r;
 
 	char * or = strdup(dst);
 	ft = strdup(dst);
 	printf(UCYN "\nTests for ft_strlcat:\n" CRESET);
 	print_w_nul_nonprnt("src", (char *)src, ft_strlen(src) + ft_strlen(dst)
 			+ 1);
-	strlcat(or, src, f_dst_s);
+	or_r = strlcat(or, src, f_dst_s);
 	print_w_nul_nonprnt("or", or, ft_strlen(src) + ft_strlen(dst) + 1);
-	strlcat(ft, src, f_dst_s);
+	ft_r = strlcat(ft, src, f_dst_s);
 	print_w_nul_nonprnt("ft", ft, ft_strlen(src) + ft_strlen(dst) + 1);
+	printf("or_r:\t(%zu)\n", or_r);
+	printf("ft_r:\t(%zu)\n", ft_r);
+	printf("res:\t%s\n" CRESET, or_r == ft_r ? GRN "OK" : RED "KO");
 	free(or);
 	free(ft);
 }
@@ -377,4 +391,43 @@ static void	test_strnstr(const char *str, const char *substr, size_t len)
 			+ 1 > len ? ft_strlen(str) + 1 : len);
 	printf("res:\t%s\n" CRESET, strcmp(strnstr(str, substr, len),
 				ft_strnstr(str, substr, len)) == 0 ? GRN "OK" : RED "KO");
+}
+
+static void	test_atoi(const char *str)
+{
+	printf(UCYN "\nTests for ft_atoi:\n" CRESET);
+	print_w_nul_nonprnt("str", (char *)str, ft_strlen(str) + 1);
+	printf("or:\t%d\n", atoi(str));
+	printf("ft:\t%d\n", ft_atoi(str));
+	printf("res:\t%s\n" CRESET,
+			atoi(str) == ft_atoi(str) ? GRN "OK" : RED "KO");
+}
+
+static void	test_atoi_inputs()
+{
+	char *strs[] = {
+		"9223372036854775805",
+		"9223372036854775806",
+		"9223372036854775807",
+		"9223372036854775808",
+		"9223372036854775809",
+		"18446744073709551613",
+		"18446744073709551614",
+		"18446744073709551615",
+		"18446744073709551616",
+		"18446744073709551617",
+		"-9223372036854775805",
+		"-9223372036854775806",
+		"-9223372036854775807",
+		"-9223372036854775808",
+		"-9223372036854775809",
+		"-18446744073709551613",
+		"-18446744073709551614",
+		"-18446744073709551615",
+		"-18446744073709551616",
+		"-18446744073709551617",
+	};
+
+	for (int i = 0; i < 20; i++)
+		test_atoi(strs[i]);
 }
