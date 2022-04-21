@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 18:07:49 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/18 12:32:26 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/21 04:27:29 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*trav;
-	size_t	i;
+	unsigned char	*trav;
+	size_t			i;
 
-	trav = (char *)s;
+	trav = (unsigned char *)s;
 	i = 0;
 	while (i < n)
 	{
