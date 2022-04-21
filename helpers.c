@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 01:31:05 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/21 01:34:17 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/21 03:46:34 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,13 @@ void	h_reset_memcpy_memmove(char ** or, char **ft)
 
 void print_w_nul_nonprnt(char *title, char *s, size_t n)
 {
-	printf("%s:\t\"", title);
+	printf("%s:\t", title);
+	if (!s)
+	{
+		printf("NULL\n");
+		return ;
+	}
+	printf("\"");
 	for (size_t i = 0; i < n; i++)
 	{
 		if (isprint(s[i]))

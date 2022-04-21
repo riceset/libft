@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 22:53:05 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/21 02:08:59 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/21 03:37:42 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ static void test_strchr_strrchr(char *(*f)(const char *, int), const char *s, in
 void	h_reset_memcpy_memmove(char ** or, char **ft);
 void print_w_nul_nonprnt(char *title, char *s, size_t n);
 static void test_strncmp(const char *s1, const char *s2, size_t n);
+static void test_memchr(const void *s, int c, size_t n);
 
 #endif
