@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/21 01:34:28 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/21 02:22:39 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,16 @@
 
 int	main(void)
 {
-	// test_is(ft_isprint);
-	// test_strlen("god");
-	// test_memset("AAA", '5', 4);
-	// test_bzero("hello world", 2);
-	// test_memcpy_memmove(ft_memmove, "Hello", 6);
-	// test_strlcpy("Hello", -1);
-	// test_strlcat("Hello ", "World", 12);
-	// test_to_upper_lower(ft_tolower, 'C');
-	// test_strchr_strrchr(ft_strchr, "hello\0ccc", '\0');
+	test_is(ft_isprint);
+	test_strlen("god");
+	test_memset("AAA", '5', 4);
+	test_bzero("hello world", 2);
+	test_memcpy_memmove(ft_memmove, "Hello", 6);
+	test_strlcpy("Hello", -1);
+	test_strlcat("Hello ", "World", 12);
+	test_to_upper_lower(ft_tolower, 'C');
+	test_strchr_strrchr(ft_strchr, "hello\0ccc", '\0');
+	test_strncmp("Hello", "Helaa", 3);
 }
 
 static void	test_is(int (*is)(int))
@@ -338,7 +339,19 @@ static void	test_strchr_strrchr(char *(*f)(const char *, int), const char *s,
 		printf(UCYN "\nTests for ft_strchr:\n" CRESET);
 	else if (f == ft_strrchr)
 		printf(UCYN "\nTests for ft_strrchr:\n" CRESET);
+	printf("c:\t(%c)\n", c);
 	print_w_nul_nonprnt("str", (char *)s, ft_strlen(s) + 1);
 	print_w_nul_nonprnt("or", strchr(s, c), ft_strlen(s) + 1);
 	print_w_nul_nonprnt("ft", ft_strchr(s, c), ft_strlen(s) + 1);
+}
+
+static void test_strncmp(const char *s1, const char *s2, size_t n)
+{
+	printf(UCYN "\nTests for ft_strrchr:\n" CRESET);
+	printf("n:\t(%zu)\n", n);
+	print_w_nul_nonprnt("s1", (char *)s1, ft_strlen(s1) + 1);
+	print_w_nul_nonprnt("s2", (char *)s2, ft_strlen(s2) + 1);
+	printf("or:\t%d\n", strncmp(s1, s2, n));
+	printf("ft:\t%d\n", ft_strncmp(s1, s2, n));
+	printf("res:\t%s\n" CRESET, strncmp(s1, s2, n) == ft_strncmp(s1, s2, n) ? GRN "OK" : RED "KO");
 }
