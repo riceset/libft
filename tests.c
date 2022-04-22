@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/22 19:54:38 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/22 20:21:06 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ int	main(void)
 	// test_strlcat(NULL, "World", 0);
 	test_to_upper_lower(ft_tolower, 'C');
 	test_strchr_strrchr(ft_strchr, "hello\0ccc", '\0');
-	test_strncmp_memcmp((int (*)(const void *, const void *,
-	size_t))ft_strncmp,
+	test_strncmp_memcmp((int (*)(const void *, const void *, size_t))ft_strncmp,
 						"Hel\0lo",
 						"Hel\0l0",
 						6);
@@ -53,6 +52,7 @@ int	main(void)
 	test_lstdelone();
 	test_lstiter();
 	test_lstclear();
+	test_lstmap();
 }
 
 /* ************************************************************************** */
@@ -749,6 +749,7 @@ void	test_lstclear(void)
 {
 	t_list	*head;
 
+	printf(UCYN "\nTests for ft_lstclear:\n" CRESET);
 	head = initialize_list_strs();
 	for (t_list *trav = head; trav != NULL; trav = trav->next)
 		printf("%s -> ", (char *)trav->content);
@@ -784,6 +785,7 @@ static void	test_lstiter(void)
 	t_list	*three;
 	t_list	*head;
 
+	printf(UCYN "\nTests for ft_lstiter:\n" CRESET);
 	content1 = ft_strdup("Hello");
 	content2 = ft_strdup("wORLD");
 	content3 = ft_strdup("Foo");
@@ -798,6 +800,57 @@ static void	test_lstiter(void)
 	printf(RED "NULL\n" CRESET);
 	ft_lstiter(head, rev_case_frm_content);
 	for (t_list *trav = head; trav != NULL; trav = trav->next)
+		printf("%s -> ", (char *)trav->content);
+	printf(RED "NULL\n" CRESET);
+}
+
+void	*val_rev_case_frm_content(void *p)
+{
+	static int	i;
+	char		*tmp;
+
+	tmp = (char *)p;
+	tmp--;
+	while (*(++tmp))
+	{
+		if (islower(*tmp))
+		{
+			*tmp = toupper(*tmp);
+			continue ;
+		}
+		if (isupper(*tmp))
+			*tmp = tolower(*tmp);
+	}
+	printf("%d: '%s'\n", i++, (char *)p);
+	return (p);
+}
+
+static void	test_lstmap(void)
+{
+	char	*content1;
+	char	*content2;
+	char	*content3;
+	t_list	*one;
+	t_list	*two;
+	t_list	*three;
+	t_list	*head;
+	t_list	*new_lst_head;
+
+	printf(UCYN "\nTests for ft_lstmap:\n" CRESET);
+	content1 = ft_strdup("Hello");
+	content2 = ft_strdup("wORLD");
+	content3 = ft_strdup("Foo");
+	one = ft_lstnew(content1);
+	two = ft_lstnew(content2);
+	three = ft_lstnew(content3);
+	one->next = two;
+	two->next = three;
+	head = one;
+	for (t_list *trav = head; trav != NULL; trav = trav->next)
+		printf("%s -> ", (char *)trav->content);
+	printf(RED "NULL\n" CRESET);
+	new_lst_head = ft_lstmap(head, val_rev_case_frm_content, free);
+	for (t_list *trav = new_lst_head; trav != NULL; trav = trav->next)
 		printf("%s -> ", (char *)trav->content);
 	printf(RED "NULL\n" CRESET);
 }

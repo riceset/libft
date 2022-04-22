@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 22:53:05 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/22 19:45:40 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/22 20:01:20 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ static void	test_lstlast(void);
 static void	test_lstdelone(void);
 void		test_lstclear(void);
 static void	test_lstiter(void);
+static void test_lstmap(void);
 
 #endif
