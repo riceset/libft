@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 21:55:04 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/13 19:51:48 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/21 19:09:33 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	i;
 	char			*sb;
 
-	i = 0;
 	if (s)
 	{
 		if (ft_strlen(s) < len)
@@ -25,6 +24,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		sb = ft_calloc((len + 1), sizeof(char));
 		if (sb)
 		{
+			i = 0;
 			if (start <= ft_strlen(s))
 				while (s[start] && i < len)
 					sb[i++] = s[start++];

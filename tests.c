@@ -6,13 +6,15 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/21 18:59:58 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/22 02:57:32 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "colors.h"
 #include "libft.h"
 #include "tests.h"
+
+static void test_substr(char const *s, unsigned int start ,size_t len);
 
 int	main(void)
 {
@@ -24,7 +26,6 @@ int	main(void)
 	// test_strlcpy("Hello", -1);
 	// test_strlcat("Hello ", "World", 12);
 	// test_strlcat(NULL, "World", 0);
-	printf("%zu\n", ft_strlcat(NULL, "World", 0));
 	// test_to_upper_lower(ft_tolower, 'C');
 	// test_strchr_strrchr(ft_strchr, "hello\0ccc", '\0');
 	// test_strncmp_memcmp((int (*)(const void *, const void *, size_t))ft_strncmp,
@@ -36,6 +37,7 @@ int	main(void)
 	// test_strnstr("Hello World aaa", "World", 16);
 	// test_atoi("+1");
 	// test_atoi_inputs();
+	test_substr("Hello", 41, 4200000);
 }
 
 static void	test_is(int (*is)(int))
@@ -430,4 +432,12 @@ static void	test_atoi_inputs()
 
 	for (int i = 0; i < 20; i++)
 		test_atoi(strs[i]);
+}
+
+static void test_substr(char const *s, unsigned int start ,size_t len)
+{
+	printf(UCYN "\nTests for ft_substr:\n" CRESET);
+
+	char *res = ft_substr(s, start, len);
+	print_w_nul_nonprnt("ft", res ? res : "NULL", ft_strlen(res) + 1);
 }
