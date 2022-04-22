@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/22 07:51:00 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/22 17:30:50 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ int	main(void)
 	// test_lstadd_front_back();
 	// test_lstsize();
 	// test_lstlast();
-	test_lstdelone();
+	// test_lstdelone();
+	test_lstiter();
 }
 
 /* ************************************************************************** */
@@ -646,6 +647,12 @@ static void	test_lstlast(void)
 	printf("last:\t%lld\nnext:\t%p\n", (long long)last->content, last->next);
 }
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                                 関数ポインタ                               */
+/*                                                                            */
+/* ************************************************************************** */
+
 static void	test_lstdelone(void)
 {
 	t_list	*one;
@@ -668,5 +675,42 @@ static void	test_lstdelone(void)
 	one->next = three;
 	for (t_list *trav = head; trav != NULL; trav = trav->next)
 		printf("%lld -> ", (long long)trav->content);
+	printf(RED "NULL\n" CRESET);
+}
+
+void rev_case_frm_content(void *p)
+{
+	p--;
+	while (*(char *)++p)
+	{
+		if (islower(*(char *)p))
+		{
+			*(char *)p = toupper(*(char *)p);
+			continue ;
+		}
+		if (isupper(*((char *)p)))
+			*(char *)p = tolower(*(char *)p);
+	}
+}
+
+static void test_lstiter(void)
+{
+	char *content1 = ft_strdup("Hello");
+	char *content2 = ft_strdup("wORLD");
+	char *content3 = ft_strdup("Foo");
+
+	t_list *one = ft_lstnew(content1);
+	t_list *two = ft_lstnew(content2);
+	t_list *three = ft_lstnew(content3);
+	t_list *head;
+	one->next = two;
+	two->next = three;
+	head = one;
+	for (t_list *trav = head; trav != NULL; trav = trav->next)
+		printf("%s -> ", (char *)trav->content);
+	printf(RED "NULL\n" CRESET);
+	ft_lstiter(head, rev_case_frm_content);
+	for (t_list *trav = head; trav != NULL; trav = trav->next)
+		printf("%s -> ", (char *)trav->content);
 	printf(RED "NULL\n" CRESET);
 }
