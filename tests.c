@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/22 07:36:44 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/22 07:51:00 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(void)
 	// test_to_upper_lower(ft_tolower, 'C');
 	// test_strchr_strrchr(ft_strchr, "hello\0ccc", '\0');
 	// test_strncmp_memcmp((int (*)(const void *, const void *,
-					// size_t))ft_strncmp,
+	// size_t))ft_strncmp,
 	// 					"Hel\0lo",
 	// 					"Hel\0l0",
 	// 					6);
@@ -49,7 +49,8 @@ int	main(void)
 	// test_lstnew("Hello World!\n");
 	// test_lstadd_front_back();
 	// test_lstsize();
-	test_lstlast();
+	// test_lstlast();
+	test_lstdelone();
 }
 
 /* ************************************************************************** */
@@ -636,10 +637,36 @@ static void	test_lstsize(void)
 	printf("list size:\t%d\n", ft_lstsize(initialize_list()));
 }
 
-static void test_lstlast(void)
+static void	test_lstlast(void)
 {
-	printf(UCYN "\nTests for ft_lstsize:\n" CRESET);
-	t_list *last = ft_lstlast(initialize_list());
+	t_list	*last;
 
+	printf(UCYN "\nTests for ft_lstsize:\n" CRESET);
+	last = ft_lstlast(initialize_list());
 	printf("last:\t%lld\nnext:\t%p\n", (long long)last->content, last->next);
+}
+
+static void	test_lstdelone(void)
+{
+	t_list	*one;
+	t_list	*two;
+	t_list	*three;
+	t_list	*head;
+
+	printf(UCYN "\nTests for ft_lstdelone:\n" CRESET);
+	one = ft_lstnew((long long *)1);
+	two = ft_lstnew((long long *)2);
+	three = ft_lstnew((long long *)3);
+	one->next = two;
+	two->next = three;
+	head = one;
+	for (t_list *trav = head; trav != NULL; trav = trav->next)
+		printf("%lld -> ", (long long)trav->content);
+	printf(RED "NULL\n" CRESET);
+	two->content = malloc(10);
+	ft_lstdelone(two, free);
+	one->next = three;
+	for (t_list *trav = head; trav != NULL; trav = trav->next)
+		printf("%lld -> ", (long long)trav->content);
+	printf(RED "NULL\n" CRESET);
 }

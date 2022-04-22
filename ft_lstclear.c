@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 22:09:15 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/16 21:17:32 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/22 07:55:31 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,4 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	while (*lst)
-	{
-	}
 }
