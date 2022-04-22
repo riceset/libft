@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/22 17:30:50 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/22 19:08:55 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,42 @@ int	main(void)
 	// test_lstlast();
 	// test_lstdelone();
 	test_lstiter();
+}
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                          GENERAL HELPER FUNCTIONS                          */
+/*                                                                            */
+/* ************************************************************************** */
+
+//Helper function for test_memcpy_memmove
+//that resets all given strings to "WATERMELONJUICE".
+void	h_reset_memcpy_memmove(char ** or, char **ft)
+{
+#define TEST_STR "WATERMELONJUICE"
+	* or = strcpy(malloc(16), TEST_STR);
+	*ft = strcpy(malloc(16), TEST_STR);
+}
+
+void print_w_nul_nonprnt(char *title, char *s, size_t n)
+{
+	printf("%s:\t", title);
+	if (!s)
+	{
+		printf("NULL\n");
+		return ;
+	}
+	printf("\"");
+	for (size_t i = 0; i < n; i++)
+	{
+		if (isprint(s[i]))
+			printf("%c", s[i]);
+		else if (s[i] == '\0')
+			printf(REDHB "\\0" CRESET);
+		else
+			printf(BLKHB "\\😈" CRESET);
+	}
+	printf("\"\n");
 }
 
 /* ************************************************************************** */
@@ -676,6 +712,10 @@ static void	test_lstdelone(void)
 	for (t_list *trav = head; trav != NULL; trav = trav->next)
 		printf("%lld -> ", (long long)trav->content);
 	printf(RED "NULL\n" CRESET);
+}
+
+void test_lstclear(void)
+{
 }
 
 void rev_case_frm_content(void *p)
