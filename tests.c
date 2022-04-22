@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/22 03:27:22 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/22 03:44:21 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,12 @@ int	main(void)
 	// test_atoi_inputs();
 	test_substr("Hello", 41, 4200000);
 }
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                    PART1                                   */
+/*                                                                            */
+/* ************************************************************************** */
 
 static void	test_is(int (*is)(int))
 {
@@ -432,6 +438,12 @@ static void	test_atoi_inputs()
 		test_atoi(strs[i]);
 }
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                                    PART2                                   */
+/*                                                                            */
+/* ************************************************************************** */
+
 static void test_substr(char const *s, unsigned int start ,size_t len)
 {
 	printf(UCYN "\nTests for ft_substr:\n" CRESET);
@@ -463,3 +475,40 @@ static void test_itoa(int n)
 	char *res = ft_itoa(n);
 	print_w_nul_nonprnt("ft", res, ft_strlen(res) + 1);
 }
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                    PUT系                                   */
+/*                                                                            */
+/* ************************************************************************** */
+
+#define STDIN 0
+#define STDOUT 1
+#define STRERROR 2
+
+static void test_putchar_fd(char c)
+{
+	printf(UCYN "\nTests for ft_putchar_fd:\n" CRESET);
+	ft_putchar_fd(c, STDOUT);
+}
+
+static void test_putstr_endl(void (*f)(char*, int), char *s)
+{
+	if (f == ft_putstr_fd)
+		printf(UCYN "\nTests for ft_putstr_fd:\n" CRESET);
+	if (f == ft_putendl_fd)
+		printf(UCYN "\nTests for ft_putendl_fd:\n" CRESET);
+	f(s, STDOUT);
+}
+
+static void test_putnbr(int n)
+{
+	printf(UCYN "\nTests for ft_putnbr_fd:\n" CRESET);
+	ft_putnbr_fd(n, STDOUT);
+}
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                    BONUS                                   */
+/*                                                                            */
+/* ************************************************************************** */
