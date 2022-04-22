@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 22:26:50 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/22 18:19:17 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/22 18:50:59 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*new;
 
 	new = NULL;
-	while (lst)
+	while (lst && f && del)
 	{
 		ft_lstadd_back(&new, ft_lstnew(f(lst->content)));
 		if (!new)
