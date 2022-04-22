@@ -6,15 +6,13 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/22 02:57:32 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/22 03:27:22 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "colors.h"
 #include "libft.h"
 #include "tests.h"
-
-static void test_substr(char const *s, unsigned int start ,size_t len);
 
 int	main(void)
 {
@@ -440,4 +438,28 @@ static void test_substr(char const *s, unsigned int start ,size_t len)
 
 	char *res = ft_substr(s, start, len);
 	print_w_nul_nonprnt("ft", res ? res : "NULL", ft_strlen(res) + 1);
+}
+
+static void test_strjoin(char const *s1, char const *s2)
+{
+	printf(UCYN "\nTests for ft_strjoin:\n" CRESET);
+	
+	char *res = ft_strjoin(s1, s2);
+	print_w_nul_nonprnt("ft", res, ft_strlen(res) + 1);
+}
+
+static void test_strtrim(char const *s1, char const *set)
+{
+	printf(UCYN "\nTests for ft_strtrim:\n" CRESET);
+
+	char *res = ft_strtrim(s1, set);
+	print_w_nul_nonprnt("ft", res, ft_strlen(res) + 1);
+}
+
+static void test_itoa(int n)
+{
+	printf(UCYN "\nTests for ft_itoa:\n" CRESET);
+
+	char *res = ft_itoa(n);
+	print_w_nul_nonprnt("ft", res, ft_strlen(res) + 1);
 }
