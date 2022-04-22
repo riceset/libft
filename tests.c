@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/22 19:08:55 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/22 19:54:38 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,42 +16,43 @@
 
 int	main(void)
 {
-	// test_is(ft_isprint);
-	// test_strlen("god");
-	// test_memset("AAA", '5', 4);
-	// test_bzero("hello world", 2);
-	// test_memcpy_memmove(ft_memmove, "Hello", 6);
-	// test_strlcpy("Hello", -1);
-	// test_strlcat("Hello ", "World", 12);
+	test_is(ft_isprint);
+	test_strlen("god");
+	test_memset("AAA", '5', 4);
+	test_bzero("hello world", 2);
+	test_memcpy_memmove(ft_memmove, "Hello", 6);
+	test_strlcpy("Hello", -1);
+	test_strlcat("Hello ", "World", 12);
 	// test_strlcat(NULL, "World", 0);
-	// test_to_upper_lower(ft_tolower, 'C');
-	// test_strchr_strrchr(ft_strchr, "hello\0ccc", '\0');
-	// test_strncmp_memcmp((int (*)(const void *, const void *,
-	// size_t))ft_strncmp,
-	// 					"Hel\0lo",
-	// 					"Hel\0l0",
-	// 					6);
-	// test_memchr("Hello", '\0', 3);
-	// test_strncmp_memcmp(ft_memcmp, "Hel\0lo", "Hel\0l0", 6);
-	// test_strnstr("Hello World aaa", "World", 16);
-	// test_atoi("+1");
-	// test_atoi_inputs();
-	// test_substr("Hello", 41, 4200000);
-	// test_strjoin("", "");
-	// test_strtrim("", "");
-	// test_itoa(3);
-	// test_strmapi("Hello World!\n");
-	// test_striteri("Hello World\n");
-	// test_putchar_fd('c');
-	// test_putstr_endl(ft_putstr_fd, "HELLO!!!!!!!");
-	// test_putstr_endl(ft_putendl_fd, "HELLO!!!!!!!");
-	// test_putnbr(INT_MAX);
-	// test_lstnew("Hello World!\n");
-	// test_lstadd_front_back();
-	// test_lstsize();
-	// test_lstlast();
-	// test_lstdelone();
+	test_to_upper_lower(ft_tolower, 'C');
+	test_strchr_strrchr(ft_strchr, "hello\0ccc", '\0');
+	test_strncmp_memcmp((int (*)(const void *, const void *,
+	size_t))ft_strncmp,
+						"Hel\0lo",
+						"Hel\0l0",
+						6);
+	test_memchr("Hello", '\0', 3);
+	test_strncmp_memcmp(ft_memcmp, "Hel\0lo", "Hel\0l0", 6);
+	test_strnstr("Hello World aaa", "World", 16);
+	test_atoi("+1");
+	test_atoi_inputs();
+	test_substr("Hello", 41, 4200000);
+	test_strjoin("", "");
+	test_strtrim("", "");
+	test_itoa(3);
+	test_strmapi("Hello World!\n");
+	test_striteri("Hello World\n");
+	test_putchar_fd('c');
+	test_putstr_endl(ft_putstr_fd, "HELLO!!!!!!!");
+	test_putstr_endl(ft_putendl_fd, "HELLO!!!!!!!");
+	test_putnbr(INT_MAX);
+	test_lstnew("Hello World!\n");
+	test_lstadd_front_back();
+	test_lstsize();
+	test_lstlast();
+	test_lstdelone();
 	test_lstiter();
+	test_lstclear();
 }
 
 /* ************************************************************************** */
@@ -69,7 +70,7 @@ void	h_reset_memcpy_memmove(char ** or, char **ft)
 	*ft = strcpy(malloc(16), TEST_STR);
 }
 
-void print_w_nul_nonprnt(char *title, char *s, size_t n)
+void	print_w_nul_nonprnt(char *title, char *s, size_t n)
 {
 	printf("%s:\t", title);
 	if (!s)
@@ -180,13 +181,6 @@ static void	test_memset(void *s, int c, size_t len)
 	print_w_nul_nonprnt("ft", (char *)ft_memset(ft_s, c, len), ft_strlen(s)
 			+ 1 > len ? ft_strlen(s) + 1 : len);
 	printf("res:\t%s\n", strcmp(or_s, ft_s) == 0 ? GRN "OK" : RED "KO");
-	// printf("'%c' --> \"%s\" (%zu)\nor: \t\"%s\"\nft: \t\"%s\"\nres:\t%s\n" CRESET,
-	// 		c,
-	// 		(char *)s,
-	// 		len,
-	// 		(char *)memset(or_s, c, len),
-	// 		(char *)ft_memset(ft_s, c, len),
-	// 		strcmp(or_s, ft_s) == 0 ? GRN "OK" : RED "KO");
 	free(or_s);
 	free(ft_s);
 }
@@ -642,6 +636,43 @@ static t_list	*initialize_list(void)
 	return (head);
 }
 
+static t_list	*initialize_list_strs(void)
+{
+	char	*content0;
+	char	*content1;
+	char	*content2;
+	char	*content3;
+	char	*content4;
+	t_list	*zero;
+	t_list	*one;
+	t_list	*two;
+	t_list	*three;
+	t_list	*four;
+	t_list	*head;
+
+	content0 = ft_strdup("0");
+	content1 = ft_strdup("1");
+	content2 = ft_strdup("2");
+	content3 = ft_strdup("3");
+	content4 = ft_strdup("4");
+	zero = ft_lstnew(content0);
+	one = ft_lstnew(content1);
+	two = ft_lstnew(content2);
+	three = ft_lstnew(content3);
+	four = ft_lstnew(content4);
+	zero->next = one;
+	one->next = two;
+	two->next = three;
+	three->next = four;
+	// free(content0);
+	// free(content1);
+	// free(content2);
+	// free(content3);
+	// free(content4);
+	head = zero;
+	return (head);
+}
+
 /* END HELPERS */
 
 static void	test_lstnew(char *content)
@@ -714,11 +745,21 @@ static void	test_lstdelone(void)
 	printf(RED "NULL\n" CRESET);
 }
 
-void test_lstclear(void)
+void	test_lstclear(void)
 {
+	t_list	*head;
+
+	head = initialize_list_strs();
+	for (t_list *trav = head; trav != NULL; trav = trav->next)
+		printf("%s -> ", (char *)trav->content);
+	printf(RED "NULL\n" CRESET);
+	ft_lstclear(&head, free);
+	for (t_list *trav = head; trav != NULL; trav = trav->next)
+		printf("%s -> ", (char *)trav->content);
+	printf(RED "NULL\n" CRESET);
 }
 
-void rev_case_frm_content(void *p)
+void	rev_case_frm_content(void *p)
 {
 	p--;
 	while (*(char *)++p)
@@ -733,16 +774,22 @@ void rev_case_frm_content(void *p)
 	}
 }
 
-static void test_lstiter(void)
+static void	test_lstiter(void)
 {
-	char *content1 = ft_strdup("Hello");
-	char *content2 = ft_strdup("wORLD");
-	char *content3 = ft_strdup("Foo");
+	char	*content1;
+	char	*content2;
+	char	*content3;
+	t_list	*one;
+	t_list	*two;
+	t_list	*three;
+	t_list	*head;
 
-	t_list *one = ft_lstnew(content1);
-	t_list *two = ft_lstnew(content2);
-	t_list *three = ft_lstnew(content3);
-	t_list *head;
+	content1 = ft_strdup("Hello");
+	content2 = ft_strdup("wORLD");
+	content3 = ft_strdup("Foo");
+	one = ft_lstnew(content1);
+	two = ft_lstnew(content2);
+	three = ft_lstnew(content3);
 	one->next = two;
 	two->next = three;
 	head = one;
