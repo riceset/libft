@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/22 03:44:21 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/22 04:40:47 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,35 @@
 
 int	main(void)
 {
-	// test_is(ft_isprint);
-	// test_strlen("god");
-	// test_memset("AAA", '5', 4);
-	// test_bzero("hello world", 2);
-	// test_memcpy_memmove(ft_memmove, "Hello", 6);
-	// test_strlcpy("Hello", -1);
-	// test_strlcat("Hello ", "World", 12);
+	test_is(ft_isprint);
+	test_strlen("god");
+	test_memset("AAA", '5', 4);
+	test_bzero("hello world", 2);
+	test_memcpy_memmove(ft_memmove, "Hello", 6);
+	test_strlcpy("Hello", -1);
+	test_strlcat("Hello ", "World", 12);
 	// test_strlcat(NULL, "World", 0);
-	// test_to_upper_lower(ft_tolower, 'C');
-	// test_strchr_strrchr(ft_strchr, "hello\0ccc", '\0');
-	// test_strncmp_memcmp((int (*)(const void *, const void *, size_t))ft_strncmp,
-	// 					"Hel\0lo",
-	// 					"Hel\0l0",
-	// 					6);
-	// test_memchr("Hello", '\0', 3);
-	// test_strncmp_memcmp(ft_memcmp, "Hel\0lo", "Hel\0l0", 6);
-	// test_strnstr("Hello World aaa", "World", 16);
-	// test_atoi("+1");
+	test_to_upper_lower(ft_tolower, 'C');
+	test_strchr_strrchr(ft_strchr, "hello\0ccc", '\0');
+	test_strncmp_memcmp((int (*)(const void *, const void *, size_t))ft_strncmp,
+						"Hel\0lo",
+						"Hel\0l0",
+						6);
+	test_memchr("Hello", '\0', 3);
+	test_strncmp_memcmp(ft_memcmp, "Hel\0lo", "Hel\0l0", 6);
+	test_strnstr("Hello World aaa", "World", 16);
+	test_atoi("+1");
 	// test_atoi_inputs();
 	test_substr("Hello", 41, 4200000);
+	test_strjoin("", "");
+	test_strtrim("", "");
+	test_itoa(3);
+	test_strmapi("Hello World!\n");
+	test_striteri("Hello World\n");
+	test_putchar_fd('c');
+	test_putstr_endl(ft_putstr_fd, "HELLO!!!!!!!");
+	test_putstr_endl(ft_putendl_fd, "HELLO!!!!!!!");
+	test_putnbr(INT_MAX);
 }
 
 /* ************************************************************************** */
@@ -478,6 +487,51 @@ static void test_itoa(int n)
 
 /* ************************************************************************** */
 /*                                                                            */
+/*                                 関数ポインタ                               */
+/*                                                                            */
+/* ************************************************************************** */
+
+static char byval_rev_case(unsigned int i, char c)
+{
+	(void) i;
+	if (islower(c))
+		return (toupper(c));
+	if (isupper(c))
+		return (tolower(c));
+	else
+		return (c);
+}
+
+static void test_strmapi(char const *s)
+{
+	printf(UCYN "\nTests for ft_strmapi:\n" CRESET);
+	char *res = ft_strmapi(s, byval_rev_case);
+	print_w_nul_nonprnt("ft", res, ft_strlen(res) + 1);
+}
+
+static void byrefer_rev_case(unsigned int i, char *c)
+{
+	(void) i;
+	if (islower(*c))
+	{
+		*c = toupper(*c);
+		return ;
+	}
+	if (isupper(*c))
+		*c = tolower(*c);
+}
+
+static void test_striteri(char *s)
+{
+	printf(UCYN "\nTests for ft_striteri:\n" CRESET);
+	char *res = ft_strdup(s);
+	ft_striteri(res, byrefer_rev_case);
+	print_w_nul_nonprnt("ft", res, ft_strlen(res) + 1);
+	free(res);
+}
+
+/* ************************************************************************** */
+/*                                                                            */
 /*                                    PUT系                                   */
 /*                                                                            */
 /* ************************************************************************** */
@@ -488,23 +542,27 @@ static void test_itoa(int n)
 
 static void test_putchar_fd(char c)
 {
-	printf(UCYN "\nTests for ft_putchar_fd:\n" CRESET);
+	printf(UCYN "\nTests for ft_putchar_fd:" CRESET "\n");
 	ft_putchar_fd(c, STDOUT);
+	puts("");
 }
 
 static void test_putstr_endl(void (*f)(char*, int), char *s)
 {
 	if (f == ft_putstr_fd)
-		printf(UCYN "\nTests for ft_putstr_fd:\n" CRESET);
+		printf(UCYN "\nTests for ft_putstr_fd:" CRESET "\n");
 	if (f == ft_putendl_fd)
-		printf(UCYN "\nTests for ft_putendl_fd:\n" CRESET);
+		printf(UCYN "\nTests for ft_putendl_fd:" CRESET "\n");
 	f(s, STDOUT);
+	if (f == ft_putstr_fd)
+		puts("");
 }
 
 static void test_putnbr(int n)
 {
-	printf(UCYN "\nTests for ft_putnbr_fd:\n" CRESET);
+	printf(UCYN "\nTests for ft_putnbr_fd:" CRESET "\n");
 	ft_putnbr_fd(n, STDOUT);
+	puts("");
 }
 
 /* ************************************************************************** */

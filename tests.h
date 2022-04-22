@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 22:53:05 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/22 03:27:20 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/22 04:23:13 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,12 @@ static void	test_substr(char const *s, unsigned int start, size_t len);
 static void	test_strjoin(char const *s1, char const *s2);
 static void	test_strtrim(char const *s1, char const *set);
 static void	test_itoa(int n);
+static void test_striteri(char *s);
+static void test_strmapi(char const *s);
+static char byval_rev_case(unsigned int i, char c);
+static void byrefer_rev_case(unsigned int i, char *c);
+static void test_putchar_fd(char c);
+static void test_putstr_endl(void (*f)(char*, int), char *s);
+static void test_putnbr(int n);
 
 #endif

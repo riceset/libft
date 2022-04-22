@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:22:37 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/22 03:18:08 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/22 04:41:05 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	{
 		i = -1;
 		while (s[++i])
-			f(i, &s[i]);
+			f(i, s + i);
 	}
 }
