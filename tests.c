@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/22 05:31:34 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/22 07:36:44 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,40 @@
 
 int	main(void)
 {
-	test_is(ft_isprint);
-	test_strlen("god");
-	test_memset("AAA", '5', 4);
-	test_bzero("hello world", 2);
-	test_memcpy_memmove(ft_memmove, "Hello", 6);
-	test_strlcpy("Hello", -1);
-	test_strlcat("Hello ", "World", 12);
+	// test_is(ft_isprint);
+	// test_strlen("god");
+	// test_memset("AAA", '5', 4);
+	// test_bzero("hello world", 2);
+	// test_memcpy_memmove(ft_memmove, "Hello", 6);
+	// test_strlcpy("Hello", -1);
+	// test_strlcat("Hello ", "World", 12);
 	// test_strlcat(NULL, "World", 0);
-	test_to_upper_lower(ft_tolower, 'C');
-	test_strchr_strrchr(ft_strchr, "hello\0ccc", '\0');
-	test_strncmp_memcmp((int (*)(const void *, const void *, size_t))ft_strncmp,
-						"Hel\0lo",
-						"Hel\0l0",
-						6);
-	test_memchr("Hello", '\0', 3);
-	test_strncmp_memcmp(ft_memcmp, "Hel\0lo", "Hel\0l0", 6);
-	test_strnstr("Hello World aaa", "World", 16);
-	test_atoi("+1");
+	// test_to_upper_lower(ft_tolower, 'C');
+	// test_strchr_strrchr(ft_strchr, "hello\0ccc", '\0');
+	// test_strncmp_memcmp((int (*)(const void *, const void *,
+					// size_t))ft_strncmp,
+	// 					"Hel\0lo",
+	// 					"Hel\0l0",
+	// 					6);
+	// test_memchr("Hello", '\0', 3);
+	// test_strncmp_memcmp(ft_memcmp, "Hel\0lo", "Hel\0l0", 6);
+	// test_strnstr("Hello World aaa", "World", 16);
+	// test_atoi("+1");
 	// test_atoi_inputs();
-	test_substr("Hello", 41, 4200000);
-	test_strjoin("", "");
-	test_strtrim("", "");
-	test_itoa(3);
-	test_strmapi("Hello World!\n");
-	test_striteri("Hello World\n");
-	test_putchar_fd('c');
-	test_putstr_endl(ft_putstr_fd, "HELLO!!!!!!!");
-	test_putstr_endl(ft_putendl_fd, "HELLO!!!!!!!");
-	test_putnbr(INT_MAX);
-	test_lstnew("Hello World!\n");
-	test_lstadd_front_back();
+	// test_substr("Hello", 41, 4200000);
+	// test_strjoin("", "");
+	// test_strtrim("", "");
+	// test_itoa(3);
+	// test_strmapi("Hello World!\n");
+	// test_striteri("Hello World\n");
+	// test_putchar_fd('c');
+	// test_putstr_endl(ft_putstr_fd, "HELLO!!!!!!!");
+	// test_putstr_endl(ft_putendl_fd, "HELLO!!!!!!!");
+	// test_putnbr(INT_MAX);
+	// test_lstnew("Hello World!\n");
+	// test_lstadd_front_back();
+	// test_lstsize();
+	test_lstlast();
 }
 
 /* ************************************************************************** */
@@ -420,7 +423,7 @@ static void	test_atoi(const char *str)
 			atoi(str) == ft_atoi(str) ? GRN "OK" : RED "KO");
 }
 
-static void	test_atoi_inputs()
+static void	test_atoi_inputs(void)
 {
 	char *strs[] = {
 		"9223372036854775805",
@@ -444,7 +447,6 @@ static void	test_atoi_inputs()
 		"-18446744073709551616",
 		"-18446744073709551617",
 	};
-
 	for (int i = 0; i < 20; i++)
 		test_atoi(strs[i]);
 }
@@ -455,35 +457,39 @@ static void	test_atoi_inputs()
 /*                                                                            */
 /* ************************************************************************** */
 
-static void test_substr(char const *s, unsigned int start ,size_t len)
+static void	test_substr(char const *s, unsigned int start, size_t len)
 {
-	printf(UCYN "\nTests for ft_substr:\n" CRESET);
+	char	*res;
 
-	char *res = ft_substr(s, start, len);
+	printf(UCYN "\nTests for ft_substr:\n" CRESET);
+	res = ft_substr(s, start, len);
 	print_w_nul_nonprnt("ft", res ? res : "NULL", ft_strlen(res) + 1);
 }
 
-static void test_strjoin(char const *s1, char const *s2)
+static void	test_strjoin(char const *s1, char const *s2)
 {
+	char	*res;
+
 	printf(UCYN "\nTests for ft_strjoin:\n" CRESET);
-	
-	char *res = ft_strjoin(s1, s2);
+	res = ft_strjoin(s1, s2);
 	print_w_nul_nonprnt("ft", res, ft_strlen(res) + 1);
 }
 
-static void test_strtrim(char const *s1, char const *set)
+static void	test_strtrim(char const *s1, char const *set)
 {
+	char	*res;
+
 	printf(UCYN "\nTests for ft_strtrim:\n" CRESET);
-
-	char *res = ft_strtrim(s1, set);
+	res = ft_strtrim(s1, set);
 	print_w_nul_nonprnt("ft", res, ft_strlen(res) + 1);
 }
 
-static void test_itoa(int n)
+static void	test_itoa(int n)
 {
-	printf(UCYN "\nTests for ft_itoa:\n" CRESET);
+	char	*res;
 
-	char *res = ft_itoa(n);
+	printf(UCYN "\nTests for ft_itoa:\n" CRESET);
+	res = ft_itoa(n);
 	print_w_nul_nonprnt("ft", res, ft_strlen(res) + 1);
 }
 
@@ -493,9 +499,9 @@ static void test_itoa(int n)
 /*                                                                            */
 /* ************************************************************************** */
 
-static char byval_rev_case(unsigned int i, char c)
+static char	byval_rev_case(unsigned int i, char c)
 {
-	(void) i;
+	(void)i;
 	if (islower(c))
 		return (toupper(c));
 	if (isupper(c))
@@ -504,16 +510,18 @@ static char byval_rev_case(unsigned int i, char c)
 		return (c);
 }
 
-static void test_strmapi(char const *s)
+static void	test_strmapi(char const *s)
 {
+	char	*res;
+
 	printf(UCYN "\nTests for ft_strmapi:\n" CRESET);
-	char *res = ft_strmapi(s, byval_rev_case);
+	res = ft_strmapi(s, byval_rev_case);
 	print_w_nul_nonprnt("ft", res, ft_strlen(res) + 1);
 }
 
-static void byrefer_rev_case(unsigned int i, char *c)
+static void	byrefer_rev_case(unsigned int i, char *c)
 {
-	(void) i;
+	(void)i;
 	if (islower(*c))
 	{
 		*c = toupper(*c);
@@ -523,10 +531,12 @@ static void byrefer_rev_case(unsigned int i, char *c)
 		*c = tolower(*c);
 }
 
-static void test_striteri(char *s)
+static void	test_striteri(char *s)
 {
+	char	*res;
+
 	printf(UCYN "\nTests for ft_striteri:\n" CRESET);
-	char *res = ft_strdup(s);
+	res = ft_strdup(s);
 	ft_striteri(res, byrefer_rev_case);
 	print_w_nul_nonprnt("ft", res, ft_strlen(res) + 1);
 	free(res);
@@ -542,14 +552,14 @@ static void test_striteri(char *s)
 #define STDOUT 1
 #define STRERROR 2
 
-static void test_putchar_fd(char c)
+static void	test_putchar_fd(char c)
 {
 	printf(UCYN "\nTests for ft_putchar_fd:" CRESET "\n");
 	ft_putchar_fd(c, STDOUT);
 	puts("");
 }
 
-static void test_putstr_endl(void (*f)(char*, int), char *s)
+static void	test_putstr_endl(void (*f)(char *, int), char *s)
 {
 	if (f == ft_putstr_fd)
 		printf(UCYN "\nTests for ft_putstr_fd:" CRESET "\n");
@@ -560,7 +570,7 @@ static void test_putstr_endl(void (*f)(char*, int), char *s)
 		puts("");
 }
 
-static void test_putnbr(int n)
+static void	test_putnbr(int n)
 {
 	printf(UCYN "\nTests for ft_putnbr_fd:" CRESET "\n");
 	ft_putnbr_fd(n, STDOUT);
@@ -573,27 +583,63 @@ static void test_putnbr(int n)
 /*                                                                            */
 /* ************************************************************************** */
 
-static void test_lstnew(char *content)
-{
-	printf(UCYN "\nTests for ft_lstnew:\n" CRESET);
+/* HELPERS */
 
-	t_list *l = ft_lstnew(content);
-	print_w_nul_nonprnt("cntnt", l->content, ft_strlen(l->content) + 1);
-	printf("next:\t%s\n", l->next == NULL ? GRN "NULL" CRESET : RED "???" CRESET);
+static t_list	*initialize_list(void)
+{
+	t_list	*zero;
+	t_list	*one;
+	t_list	*two;
+	t_list	*three;
+	t_list	*head;
+
+	zero = ft_lstnew((long long *)0);
+	one = ft_lstnew((long long *)1);
+	two = ft_lstnew((long long *)2);
+	three = ft_lstnew((long long *)3);
+	head = one;
+	one->next = two;
+	ft_lstadd_front(&head, zero);
+	ft_lstadd_back(&head, three);
+	return (head);
 }
 
-static void test_lstadd_front_back(void)
-{
-	printf(UCYN "\nTests for ft_lstadd_front && ft_lstadd_back:\n" CRESET);
+/* END HELPERS */
 
-	t_list *zero = ft_lstnew((long long *)0);
-	t_list *one = ft_lstnew((long long *)1);
-	t_list *two = ft_lstnew((long long *)2);
-	t_list *three = ft_lstnew((long long *)3);
-	one->next = two;
-	ft_lstadd_front(&one, zero);
-	ft_lstadd_back(&one, three);
-	for (t_list *trav = one; trav != NULL; trav = trav->next)
+static void	test_lstnew(char *content)
+{
+	t_list	*l;
+
+	printf(UCYN "\nTests for ft_lstnew:\n" CRESET);
+	l = ft_lstnew(content);
+	print_w_nul_nonprnt("cntnt", l->content, ft_strlen(l->content) + 1);
+	printf("next:\t%s\n",
+			l->next == NULL ? GRN "NULL" CRESET : RED "???" CRESET);
+}
+
+static void	test_lstadd_front_back(void)
+{
+	t_list	*head;
+
+	printf(UCYN "\nTests for ft_lstadd_front && ft_lstadd_back:\n" CRESET);
+	head = initialize_list();
+	for (t_list *trav = head; trav != NULL; trav = trav->next)
 		printf("%lld -> ", (long long)trav->content);
 	printf(RED "NULL\n" CRESET);
+	for (t_list *tmp = head; !tmp; head = tmp, tmp = tmp->next)
+		free(head);
+}
+
+static void	test_lstsize(void)
+{
+	printf(UCYN "\nTests for ft_lstsize:\n" CRESET);
+	printf("list size:\t%d\n", ft_lstsize(initialize_list()));
+}
+
+static void test_lstlast(void)
+{
+	printf(UCYN "\nTests for ft_lstsize:\n" CRESET);
+	t_list *last = ft_lstlast(initialize_list());
+
+	printf("last:\t%lld\nnext:\t%p\n", (long long)last->content, last->next);
 }

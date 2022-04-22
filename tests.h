@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 22:53:05 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/22 05:16:24 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/22 07:35:20 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,7 @@ static void test_putstr_endl(void (*f)(char*, int), char *s);
 static void test_putnbr(int n);
 static void test_lstnew(char *content);
 static void test_lstadd_front_back(void);
+static void	test_lstsize(void);
+static void test_lstlast(void);
 
 #endif
