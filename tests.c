@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/22 04:40:47 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/22 05:31:34 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	main(void)
 	test_putstr_endl(ft_putstr_fd, "HELLO!!!!!!!");
 	test_putstr_endl(ft_putendl_fd, "HELLO!!!!!!!");
 	test_putnbr(INT_MAX);
+	test_lstnew("Hello World!\n");
+	test_lstadd_front_back();
 }
 
 /* ************************************************************************** */
@@ -570,3 +572,28 @@ static void test_putnbr(int n)
 /*                                    BONUS                                   */
 /*                                                                            */
 /* ************************************************************************** */
+
+static void test_lstnew(char *content)
+{
+	printf(UCYN "\nTests for ft_lstnew:\n" CRESET);
+
+	t_list *l = ft_lstnew(content);
+	print_w_nul_nonprnt("cntnt", l->content, ft_strlen(l->content) + 1);
+	printf("next:\t%s\n", l->next == NULL ? GRN "NULL" CRESET : RED "???" CRESET);
+}
+
+static void test_lstadd_front_back(void)
+{
+	printf(UCYN "\nTests for ft_lstadd_front && ft_lstadd_back:\n" CRESET);
+
+	t_list *zero = ft_lstnew((long long *)0);
+	t_list *one = ft_lstnew((long long *)1);
+	t_list *two = ft_lstnew((long long *)2);
+	t_list *three = ft_lstnew((long long *)3);
+	one->next = two;
+	ft_lstadd_front(&one, zero);
+	ft_lstadd_back(&one, three);
+	for (t_list *trav = one; trav != NULL; trav = trav->next)
+		printf("%lld -> ", (long long)trav->content);
+	printf(RED "NULL\n" CRESET);
+}
