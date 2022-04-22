@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 18:11:03 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/22 06:58:11 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/22 19:03:06 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	ft_atoi(const char *str)
 			sign = -1;
 	while (ft_isdigit(*str))
 	{
-
 		if ((res * 10 + (*str - '0')) / 10 != res)
 		{
 			if (sign == 1)

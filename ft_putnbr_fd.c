@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:29:22 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/14 13:49:24 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/22 19:01:38 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,4 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	else
 		ft_putchar_fd(n + '0', fd);
-	return ;
 }

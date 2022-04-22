@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 21:06:41 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/15 23:27:48 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/22 19:02:06 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int		size;
+	int	size;
 
 	size = 0;
 	while (lst)

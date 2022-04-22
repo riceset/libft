@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:15:35 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/15 20:51:41 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/22 19:00:23 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	if (s1 && set)
 	{
-		res_size = ft_res_size((char *) s1, (char *) set, &head, &tail);
+		res_size = ft_res_size((char *)s1, (char *)set, &head, &tail);
 		if (res_size < 0)
 			res_size = 0;
 		res_h = ft_calloc((res_size + 1), sizeof(char));
