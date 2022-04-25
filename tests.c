@@ -6,13 +6,14 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/22 20:21:06 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/25 06:50:06 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "colors.h"
 #include "libft.h"
 #include "tests.h"
+#include <stddef.h>
 
 int	main(void)
 {
@@ -23,7 +24,9 @@ int	main(void)
 	test_memcpy_memmove(ft_memmove, "Hello", 6);
 	test_strlcpy("Hello", -1);
 	test_strlcat("Hello ", "World", 12);
+
 	// test_strlcat(NULL, "World", 0);
+
 	test_to_upper_lower(ft_tolower, 'C');
 	test_strchr_strrchr(ft_strchr, "hello\0ccc", '\0');
 	test_strncmp_memcmp((int (*)(const void *, const void *, size_t))ft_strncmp,
@@ -38,6 +41,7 @@ int	main(void)
 	test_substr("Hello", 41, 4200000);
 	test_strjoin("", "");
 	test_strtrim("", "");
+	test_split("Hello World", ' ');
 	test_itoa(3);
 	test_strmapi("Hello World!\n");
 	test_striteri("Hello World\n");
@@ -53,6 +57,8 @@ int	main(void)
 	test_lstiter();
 	test_lstclear();
 	test_lstmap();
+	test_split("Hello a", ' ');
+	// test_split("_a_____hello________world__", '_');
 }
 
 /* ************************************************************************** */
@@ -102,7 +108,6 @@ static void	test_is(int (*is)(int))
 	char	n[8];
 	char	grn[16];
 	char	red[17];
-	int		i;
 
 	if (is == ft_isalpha)
 		strcpy(n, "isalpha");
@@ -434,7 +439,7 @@ static void	test_memchr(const void *s, int c, size_t n)
 
 static void	test_strnstr(const char *str, const char *substr, size_t len)
 {
-	printf(UCYN "\nTests for ft_memchr:\n" CRESET);
+	printf(UCYN "\nTests for ft_strnstr:\n" CRESET);
 	print_w_nul_nonprnt("str", (char *)str, ft_strlen(str) + 1);
 	print_w_nul_nonprnt("substr", (char *)substr, ft_strlen(substr) + 1);
 	print_w_nul_nonprnt("or", strnstr(str, substr, len), ft_strlen(str)
@@ -514,6 +519,20 @@ static void	test_strtrim(char const *s1, char const *set)
 	printf(UCYN "\nTests for ft_strtrim:\n" CRESET);
 	res = ft_strtrim(s1, set);
 	print_w_nul_nonprnt("ft", res, ft_strlen(res) + 1);
+}
+
+static void test_split(char const *s, char c)
+{
+	char **strs = ft_split(s, c);
+	size_t	i = 0;
+
+	while (strs[i] != NULL)
+	{
+		printf("%s\n", strs[i]);
+		free(strs[i]);
+		i++;
+	}
+	free(strs);
 }
 
 static void	test_itoa(int n)

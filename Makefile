@@ -27,4 +27,8 @@ fclean: clean
 
 re: fclean all
 
+compile: all
+	$(CC) tests.c libft.a
+	./a.out
+
 .PHONY: all clean fclean re bonus
