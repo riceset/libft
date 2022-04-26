@@ -6,11 +6,9 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 18:04:16 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/22 19:04:02 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/25 22:26:35 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_tolower(int c)
 {

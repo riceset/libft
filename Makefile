@@ -31,4 +31,4 @@ compile: all
 	$(CC) tests.c libft.a
 	./a.out
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re bonus all

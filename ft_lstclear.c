@@ -6,11 +6,12 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 22:09:15 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/22 19:02:28 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/25 22:31:44 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*tmp;

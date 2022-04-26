@@ -6,12 +6,11 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:16:58 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/25 06:43:42 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/25 22:31:13 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdio.h"
 
 typedef enum e_status
 {
@@ -29,7 +28,7 @@ static char	*ft_strndup(const char *s1, size_t n)
 	return (dup);
 }
 
-static size_t	ft_sc(char const *s, char c)
+static size_t	str_count(char const *s, char c)
 {
 	size_t		sc;
 	t_status	state;
@@ -50,7 +49,7 @@ static size_t	ft_sc(char const *s, char c)
 	return (sc);
 }
 
-static size_t	ft_count_current_string_size(const char *s, char c)
+static size_t	count_curr_str_size(const char *s, char c)
 {
 	size_t	i;
 
@@ -60,7 +59,7 @@ static size_t	ft_count_current_string_size(const char *s, char c)
 	return (i);
 }
 
-static char	**ssplit(char **ss, const char *s, size_t sc, const char c)
+static char	**helper(char **ss, const char *s, size_t sc, const char c)
 {
 	size_t	i;
 	size_t	j;
@@ -72,11 +71,11 @@ static char	**ssplit(char **ss, const char *s, size_t sc, const char c)
 	{
 		while (s[i] == c)
 			i++;
-		len = ft_count_current_string_size(s + i, c);
+		len = count_curr_str_size(s + i, c);
 		ss[j] = ft_strndup(s + i, len);
 		if (ss[j] == NULL)
 		{
-			while (--j)
+			while (j--)
 				free(ss[j]);
 			free(ss);
 			return (NULL);
@@ -94,10 +93,10 @@ char	**ft_split(char const *s, char c)
 
 	if (s)
 	{
-		sc = ft_sc(s, c);
+		sc = str_count(s, c);
 		ss = ft_calloc(sc + 1, sizeof(char *));
 		if (ss)
-			return (ssplit(ss, s, sc, c));
+			return (helper(ss, s, sc, c));
 	}
 	return (NULL);
 }

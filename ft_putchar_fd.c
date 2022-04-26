@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:24:26 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/22 19:01:01 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/25 22:31:47 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,4 @@
 void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
-	return ;
 }

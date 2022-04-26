@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/25 06:50:06 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/25 07:39:48 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,47 +17,47 @@
 
 int	main(void)
 {
-	test_is(ft_isprint);
-	test_strlen("god");
-	test_memset("AAA", '5', 4);
-	test_bzero("hello world", 2);
-	test_memcpy_memmove(ft_memmove, "Hello", 6);
-	test_strlcpy("Hello", -1);
-	test_strlcat("Hello ", "World", 12);
+	// test_is(ft_isdigit);
+	// test_strlen("aaaaaaaa");
+	// test_memset("AAA", '5', 2);
+	// test_bzero("hello world", 2);
+	// test_memcpy_memmove(ft_memmove, "Hello", 6);
+	// test_strlcpy("Hello", -1);
+	// test_strlcat("Hello ", "World", 12);
 
 	// test_strlcat(NULL, "World", 0);
 
-	test_to_upper_lower(ft_tolower, 'C');
-	test_strchr_strrchr(ft_strchr, "hello\0ccc", '\0');
-	test_strncmp_memcmp((int (*)(const void *, const void *, size_t))ft_strncmp,
-						"Hel\0lo",
-						"Hel\0l0",
-						6);
-	test_memchr("Hello", '\0', 3);
-	test_strncmp_memcmp(ft_memcmp, "Hel\0lo", "Hel\0l0", 6);
-	test_strnstr("Hello World aaa", "World", 16);
-	test_atoi("+1");
-	test_atoi_inputs();
-	test_substr("Hello", 41, 4200000);
-	test_strjoin("", "");
-	test_strtrim("", "");
-	test_split("Hello World", ' ');
-	test_itoa(3);
-	test_strmapi("Hello World!\n");
-	test_striteri("Hello World\n");
-	test_putchar_fd('c');
-	test_putstr_endl(ft_putstr_fd, "HELLO!!!!!!!");
-	test_putstr_endl(ft_putendl_fd, "HELLO!!!!!!!");
-	test_putnbr(INT_MAX);
-	test_lstnew("Hello World!\n");
-	test_lstadd_front_back();
-	test_lstsize();
-	test_lstlast();
-	test_lstdelone();
-	test_lstiter();
-	test_lstclear();
-	test_lstmap();
-	test_split("Hello a", ' ');
+	// test_to_upper_lower(ft_tolower, 'C');
+	// test_strchr_strrchr(ft_strchr, "hello\0ccc", '\0');
+	// test_strncmp_memcmp((int (*)(const void *, const void *, size_t))ft_strncmp,
+	// 					"Hel\0lo",
+	// 					"Hel\0l0",
+	// 					6);
+	// test_memchr("Hello", '\0', 3);
+	// test_strncmp_memcmp(ft_memcmp, "Hel\0lo", "Hel\0l0", 6);
+	// test_strnstr("Hello World aaa", "World", 16);
+	// test_atoi("+1");
+	// test_atoi_inputs();
+	// test_substr("Hello", 41, 4200000);
+	// test_strjoin("", "");
+	// test_strtrim("", "");
+	// test_split("Hello World", ' ');
+	// test_itoa(3);
+	// test_strmapi("Hello World!\n");
+	// test_striteri("Hello World\n");
+	// test_putchar_fd('c');
+	// test_putstr_endl(ft_putstr_fd, "HELLO!!!!!!!");
+	// test_putstr_endl(ft_putendl_fd, "HELLO!!!!!!!");
+	// test_putnbr(INT_MAX);
+	// test_lstnew("Hello World!\n");
+	// test_lstadd_front_back();
+	// test_lstsize();
+	// test_lstlast();
+	// test_lstdelone();
+	// test_lstiter();
+	// test_lstclear();
+	// test_lstmap();
+	// test_split("Hello a", ' ');
 	// test_split("_a_____hello________world__", '_');
 }
 
