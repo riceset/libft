@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/25 07:39:48 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/04/27 01:47:49 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int	main(void)
 {
-	// test_is(ft_isdigit);
+	test_is(ft_isdigit);
 	// test_strlen("aaaaaaaa");
 	// test_memset("AAA", '5', 2);
 	// test_bzero("hello world", 2);
@@ -33,15 +33,16 @@ int	main(void)
 	// 					"Hel\0lo",
 	// 					"Hel\0l0",
 	// 					6);
+	// test_strncmp_memcmp(ft_memcmp, NULL, "aaa", 0);
 	// test_memchr("Hello", '\0', 3);
 	// test_strncmp_memcmp(ft_memcmp, "Hel\0lo", "Hel\0l0", 6);
 	// test_strnstr("Hello World aaa", "World", 16);
-	// test_atoi("+1");
+	// test_atoi("123456789123456789123456789123456789");
 	// test_atoi_inputs();
-	// test_substr("Hello", 41, 4200000);
+	// test_substr("Hello", 5, 4200000);
 	// test_strjoin("", "");
-	// test_strtrim("", "");
-	// test_split("Hello World", ' ');
+	// test_strtrim(". h. . w ", " .");
+	// test_split("Hello  World", ' ');
 	// test_itoa(3);
 	// test_strmapi("Hello World!\n");
 	// test_striteri("Hello World\n");
