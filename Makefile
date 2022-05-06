@@ -62,12 +62,13 @@ SRCS = $(addprefix srcs/,$(MANDATORY))
 BSRCS = $(addprefix srcs/,$(BONUS))
 
 OBJS = $(SRCS:.c=.o)
-B_OBJS = $(B_SRCS:.c=.o)
+BOBJS = $(BSRCS:.c=.o)
+
 CC = gcc
 AR = ar -rc
 
 ifdef WITH_BONUS
-	OBJS += $(B_OBJS)
+	OBJS += $(BOBJS)
 endif
 
 all: $(NAME)
@@ -79,7 +80,7 @@ bonus:
 	@make all WITH_BONUS=TRUE
 
 clean:
-	$(RM) $(OBJS) $(B_OBJS)
+	$(RM) $(OBJS) $(BOBJS)
 
 fclean: clean
 	$(RM) $(NAME)
