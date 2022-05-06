@@ -6,7 +6,7 @@
 #    By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/29 02:25:48 by tkomeno           #+#    #+#              #
-#    Updated: 2022/05/06 03:53:26 by tkomeno          ###   ########.fr        #
+#    Updated: 2022/05/06 04:07:21 by tkomeno          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ BONUS = ft_lstnew.c \
 		ft_lstmap.c
 
 SRCS = $(addprefix srcs/,$(MANDATORY))
-BSRCS = $(addprefix srcs/,$(BONUS))
+BSRCS = $(addprefix srcs/bonus/,$(BONUS))
 
 OBJS = $(SRCS:.c=.o)
 BOBJS = $(BSRCS:.c=.o)
