@@ -6,12 +6,11 @@
 #    By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/29 02:25:48 by tkomeno           #+#    #+#              #
-#    Updated: 2022/05/06 04:07:21 by tkomeno          ###   ########.fr        #
+#    Updated: 2022/05/06 05:06:07 by tkomeno          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-CFLAGS = -Wall -Wextra -Werror -I includes
 
 MANDATORY = ft_isalpha.c \
 			ft_isdigit.c \
@@ -66,6 +65,8 @@ BOBJS = $(BSRCS:.c=.o)
 
 CC = gcc
 AR = ar -rc
+
+CFLAGS = -Wall -Wextra -Werror -I includes
 
 ifdef WITH_BONUS
 	OBJS += $(BOBJS)
