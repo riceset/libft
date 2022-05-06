@@ -6,14 +6,13 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:25:02 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/05/05 17:22:48 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/05/06 04:11:33 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/colors.h"
-#include "includes/libft.h"
-#include "includes/tests.h"
-#include <stddef.h>
+#include "colors.h"
+#include "libft.h"
+#include "tests.h"
 
 int	main(void)
 {
