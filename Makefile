@@ -6,7 +6,7 @@
 #    By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/29 02:25:48 by tkomeno           #+#    #+#              #
-#    Updated: 2022/05/06 05:06:07 by tkomeno          ###   ########.fr        #
+#    Updated: 2022/09/17 16:31:07 by tkomeno          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,8 +57,8 @@ BONUS = ft_lstnew.c \
 		ft_lstiter.c \
 		ft_lstmap.c
 
-SRCS = $(addprefix srcs/,$(MANDATORY))
-BSRCS = $(addprefix srcs/bonus/,$(BONUS))
+SRCS = $(addprefix sources/,$(MANDATORY))
+BSRCS = $(addprefix sources/bonus/,$(BONUS))
 
 OBJS = $(SRCS:.c=.o)
 BOBJS = $(BSRCS:.c=.o)
@@ -87,20 +87,5 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
-
-test: all
-	$(CC) -g tests.c libft.a -o tests
-	@./tests
-
-bclean: fclean
-	$(RM) tests
-	$(RM) -r tests.dSYM
-
-debug: test
-	lldb tests
-
-norm:
-	@norminette -R CheckForbiddenSourceHeader $(SRCS)
-	@norminette -R CheckDefine includes/*.h
 
 .PHONY: all clean fclean re bonus all test bclean
