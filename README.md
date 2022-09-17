@@ -22,3 +22,9 @@ Compile the library with:
 ```zsh
 $ make
 ```
+
+Or use the following command to compile it with the bonus files:
+
+```zsh
+$ make bonus
+```
