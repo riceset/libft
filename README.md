@@ -2,6 +2,8 @@
 	Libft
 </h1>
 
+[![build](https://github.com/riceset/tdd_libft/actions/workflows/build.yml/badge.svg)](https://github.com/riceset/tdd_libft/actions/workflows/build.yml) [![norminette](https://github.com/riceset/tdd_libft/actions/workflows/norminette.yml/badge.svg)](https://github.com/riceset/tdd_libft/actions/workflows/norminette.yml)  [![test](https://github.com/riceset/tdd_libft/actions/workflows/test.yml/badge.svg)](https://github.com/riceset/tdd_libft/actions/workflows/test.yml)  [![valgrind](https://github.com/riceset/tdd_libft/actions/workflows/memoryleak.yml/badge.svg)](https://github.com/riceset/tdd_libft/actions/workflows/memoryleak.yml)
+
 <p align="center">
 	<b><i>Your very first own library.</i></b><br>
 </p>

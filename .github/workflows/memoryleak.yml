@@ -1,0 +1,20 @@
+name: valgrind
+
+on:
+  push:
+    branches:
+    - master
+jobs:
+   test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tests
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install valgrind
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y valgrind
+      - name: Run valgrind
+        run: make leakfull
