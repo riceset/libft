@@ -6,7 +6,7 @@
 #    By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/29 02:25:48 by tkomeno           #+#    #+#              #
-#    Updated: 2022/10/29 01:44:35 by tkomeno          ###   ########.fr        #
+#    Updated: 2022/12/09 01:39:39 by tkomeno          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,20 @@ MANDATORY = ft_isalpha.c \
 			ft_putchar_fd.c \
 			ft_putstr_fd.c \
 			ft_putendl_fd.c \
-			ft_putnbr_fd.c
+			ft_putnbr_fd.c \
+			ft_atoi_base.c \
+			ft_putchar.c \
+			ft_putnbr.c \
+			ft_putnbr_base.c \
+			ft_putstr.c \
+			ft_range.c \
+			ft_strcat.c \
+			ft_strcmp.c \
+			ft_strcpy.c \
+			ft_strjoin2.c \
+			ft_strncat.c \
+			ft_strncpy.c \
+			ft_strstr.c
 
 BONUS =		ft_lstnew.c \
 			ft_lstadd_front.c \

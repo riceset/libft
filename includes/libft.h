@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 04:20:12 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/04/24 03:17:40 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/12/09 01:36:23 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,18 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
+void				ft_putchar(char c);
+void				ft_putstr(char *s);
+void				ft_putnbr(int n);
+char				*ft_strcpy(char *dest, char *src);
+char				*ft_strncpy(char *dest, char *src, unsigned int n);
+int					ft_strcmp(char *s1, char *s2);
+char				*ft_strcat(char *dest, char *src);
+char				*ft_strncat(char *dest, char *src, unsigned int nb);
+char				*ft_strstr(char *str, char *to_find);
+void				ft_putnbr_base(int nbr, char *base);
+int					ft_atoi_base(char *str, char *base);
+int					*ft_range(int min, int max);
+char				*ft_strjoin2(int size, char **strs, char *sep);
 
 #endif
