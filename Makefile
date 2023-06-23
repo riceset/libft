@@ -6,7 +6,7 @@
 #    By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/29 02:25:48 by tkomeno           #+#    #+#              #
-#    Updated: 2022/12/09 01:39:39 by tkomeno          ###   ########.fr        #
+#    Updated: 2023/06/23 17:35:12 by tkomeno          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,8 @@ MANDATORY = ft_isalpha.c \
 			ft_strjoin2.c \
 			ft_strncat.c \
 			ft_strncpy.c \
-			ft_strstr.c
+			ft_strstr.c \
+			ft_varjoin.c
 
 BONUS =		ft_lstnew.c \
 			ft_lstadd_front.c \

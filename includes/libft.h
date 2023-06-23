@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 04:20:12 by tkomeno           #+#    #+#             */
-/*   Updated: 2023/06/23 17:28:01 by tkomeno          ###   ########.fr       */
+/*   Updated: 2023/06/23 17:34:50 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,6 @@ void				ft_putnbr_base(int nbr, char *base);
 int					ft_atoi_base(char *str, char *base);
 int					*ft_range(int min, int max);
 char				*ft_strjoin2(int size, char **strs, char *sep);
+char				*ft_varjoin(int count, ...);
 
 #endif

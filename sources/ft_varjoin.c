@@ -6,13 +6,13 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 17:26:58 by tkomeno           #+#    #+#             */
-/*   Updated: 2023/06/23 17:31:29 by tkomeno          ###   ########.fr       */
+/*   Updated: 2023/06/23 17:34:36 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *join_strs(int count, ...)
+char *ft_varjoin(int count, ...)
 {
 	int i;
 	char *tmp;
