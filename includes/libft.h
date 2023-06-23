@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 04:20:12 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/12/09 01:36:23 by tkomeno          ###   ########.fr       */
+/*   Updated: 2023/06/23 17:28:01 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 typedef enum e_bool
 {
