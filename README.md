@@ -7,9 +7,9 @@
 </p>
 
 ## Summary
-> 42 school's first project, libft, is about learning how
-> the standard functions of C programming work, by coding
-> them from scratch and creating our very own library.
+> <i>42 school's first project, libft, is about learning how</i>
+> <i>the standard functions of C programming work, by coding</i>
+> <i>them from scratch and creating our very own library.</i>
 
 ## Getting started
 First, clone this repository and `cd` into it:
@@ -48,7 +48,7 @@ int main(void)
 When compiling it, include the `libft.a` library with it.
 
 ```sh
-cc main.c libft.a -I ./includes -o main
+$ cc main.c libft.a -I ./includes -o main
 ```
 
 #### Output:
