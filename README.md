@@ -4,7 +4,6 @@
 
 <p align="center">
     <img src="https://github.com/riceset/riceset/blob/main/42_badges/libftm.png" />
-	<b><i>Your very first own library.</i></b><br>
 </p>
 
 ## Summary
