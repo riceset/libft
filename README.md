@@ -52,7 +52,7 @@ cc main.c libft.a -I ./includes -o main
 
 #### Output:
 
-```sh
+```
 Hello World!
 ```
 
