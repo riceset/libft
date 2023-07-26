@@ -31,7 +31,7 @@ $ make bonus
 ```
 
 ## Usage
-After running `make` a file called `libft.a` will be generated.
+After running `make` a file called `libft.a` (.a is an extention used for static libraries) will be generated.
 To use it, create a main function somewhere and include the `libft.h` header file into it.
 
 ```c
