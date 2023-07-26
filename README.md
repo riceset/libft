@@ -31,6 +31,32 @@ Or use the following command to compile it with the bonus files:
 $ make bonus
 ```
 
+## Usage
+After running `make` a file called `libft.a` will be generated.
+To use it, create a main function somewhere and include the `libft.h` header file into it.
+
+```c
+#include "libft.h"
+
+int main(void)
+{
+    ft_putstr_fd("Hello World!\n", 1);
+    return (0);
+}
+```
+
+When compiling it, include the `libft.a` library with it.
+
+```sh
+cc main.c libft.a -I ./includes -o main
+```
+
+#### Output:
+
+```sh
+Hello World!
+```
+
 ## Mandatory Functions
 The mandatory functions of libft are either functions from the standard C library or other useful functions.
 They are mostly useful for character, string and memory manipulation. These 34 mandatory functions must be done correctly to get a 100% grade.
