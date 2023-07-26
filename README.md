@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-    <img src="https://github.com/riceset/riceset/blob/main/42_badges/libftm.png" />
+    <img src="https://github.com/riceset/riceset/blob/main/42_badges/libfte.png" />
 </p>
 
 ## Summary
