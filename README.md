@@ -83,7 +83,7 @@ Functions to write to a file descriptor
 - ft_putendl_fd
 - ft_putnbr_fd
 
-### Bonus Functions
+## Bonus Functions
 The bonus functions of libft deal with list manipulation. This part is worth an extra 25% to the final grade.
 
 - ft_lstnew
@@ -95,3 +95,6 @@ The bonus functions of libft deal with list manipulation. This part is worth an 
 - ft_lstclear
 - ft_lstiter
 - ft_lstmap
+
+## Observations
+Some functions weren't mentioned above.
