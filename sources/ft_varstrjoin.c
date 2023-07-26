@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_varjoin.c                                       :+:      :+:    :+:   */
+/*   ft_varstrjoin.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 17:26:58 by tkomeno           #+#    #+#             */
-/*   Updated: 2023/06/23 18:01:43 by tkomeno          ###   ########.fr       */
+/*   Updated: 2023/07/26 17:33:32 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_varstrjoin(int count, ...)
+char	*ft_varstrjoin(int count, ...)
 {
-	int i;
-	char *tmp;
-	char *result;
-	char *current;
-	va_list args;
+	int		i;
+	char	*tmp;
+	char	*result;
+	char	*current;
+	va_list	args;
 
 	va_start(args, count);
 	i = -1;
